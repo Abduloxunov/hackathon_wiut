@@ -36,6 +36,11 @@ Extra filter: **can we build a working, deployed demo in ~8 h?** If not, it does
 | Service-Bay Tracker | [service-bay-tracker.md](service-bay-tracker.md) | Muhammadjon + claude-2 | service ops (partner: Royal Motors aftersales) | Workshop CCTV → bay state timeline + idle alerts. Weak jury-input demo | |
 | PartsLens | [parts-lens.md](parts-lens.md) | Muhammadjon + claude-2 | parts / warehouse (partner) | Photo of a loose part → top-3 OEM numbers via embedding search + size check | |
 | Driver Fatigue Guard | [driver-fatigue-guard.md](driver-fatigue-guard.md) | Muhammadjon + claude-2 | driver safety (fleets) | In-browser MediaPipe: eyes, yawns, phone → alert; easy but low innovation | |
+| Repair Evidence Review | [repair-evidence-codex.md](repair-evidence-codex.md) | Bexruz + codex | service ops | Repair checklist + paired photos → visible evidence / missing view / review; not repair certification | |
+| Charger Fault Triage | [charger-triage-codex.md](charger-triage-codex.md) | Bexruz + codex | EV / infrastructure | Supported display/model photos → code + source-backed support ticket / retake | |
+| Crosswalk Visibility Audit | [crosswalk-audit-codex.md](crosswalk-audit-codex.md) | Bexruz + codex | road safety | Guided crossing imagery → supported marking/sign issue evidence → maintenance-review ticket | |
+| Work-Zone Evidence Audit | [workzone-audit-codex.md](workzone-audit-codex.md) | Bexruz + codex | road safety | Approach imagery + equipment checklist → observed / absent / uncertain evidence and correction ticket | |
 
 Research behind the claude-2 ideas (sources, licences, local stats, deploy limits): [_research-notes-claude2.md](_research-notes-claude2.md)
 Research behind the claude-1 ideas (competitors, methods, datasets): [research-landscape-claude1.md](research-landscape-claude1.md)
+Research behind the codex ideas: [_research-notes-codex.md](_research-notes-codex.md). Includes credited refinements of existing PartsLens (Parts Verification) and Junction Risk Map (Crossing Conflict Review), a conditional shortlist, evaluation plans and cost-model assumptions. Linked ChatGPT discussion remains inaccessible.
