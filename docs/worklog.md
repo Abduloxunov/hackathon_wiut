@@ -47,3 +47,4 @@ History of the project. Append one line per piece of work; never edit others' li
 | Sat 10 Oct 19:45 | Davlatyor + claude-1 | New-idea search (12 searches: YC 2026, funding, 2026 benchmarks, city programs) → `ideas/NEW-IDEAS-claude1.md` (smoky cars + emissions/satellite, child left in car, dashcam incident narrator, truck overload, cargo check) | Lead reviews |
 | Sun 11 Oct 00:40 | Davlatyor + claude-1 | DECISION: build DriveCoach; tasks T10–T14 assigned (Davlatyor only developer) | Start build |
 | Sun 11 Oct 01:50 | Davlatyor + claude-1 | Research dossier `docs/RESEARCH.md` (process, 44 ideas × CV methods, finalists, decision, models/licences, datasets, UZ facts, prior art); linked from README | Build DriveCoach |
+| Sun 11 Oct 02:20 | Davlatyor + claude-1 | FINAL decision: CarDoctor multimodal RAG (3 modes); tasks T10–T14 re-assigned | Build |

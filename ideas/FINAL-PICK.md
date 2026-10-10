@@ -1,6 +1,9 @@
 # Final pick — Davlatyor (Sun 11 Oct, 00:30)
 
-## ✅ DECISION (00:40): build **DriveCoach**. CarDoctor = "next module" slide.
+## ✅ FINAL DECISION (02:20): build **CarDoctor — multimodal (visual + text) RAG**. Three modes: used-car buying check · fleet triage · breakdown/accident. Scored vs jury criteria ≈7.5 vs pothole map ≈7.1 vs DriveCoach (common). DriveCoach + road map = next modules.
+Architecture: photos → image embeddings (CLIP/DINOv2) + zero-shot detection → vector DB #1 (visual symptom library: warning lights, smoke colours, leak colours, damage types) · words → multilingual text embeddings → vector DB #2 (repair knowledge + known issues of popular Uzbek models) · LLM answers ONLY from retrieved items with citations · workshop KB + map. Vision must visibly do the work (show matched symptom + similarity before LLM text).
+
+## (superseded) DECISION (00:40): build **DriveCoach**. CarDoctor = "next module" slide.
 Reason: Davlatyor is the only developer; DriveCoach runs on pretrained models (MediaPipe face landmarks, COCO car detector) with **no training data**; strongest live demo; the lead's favourite. CarDoctor needs 3–4 trained models + LLM key + workshop database — not feasible solo by 13:00.
 
 
