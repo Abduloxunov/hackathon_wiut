@@ -3,6 +3,8 @@
 Every agent reads this file at the start of each session or task, together with `AGENTS.md` and `docs/worklog.md`.
 It answers: who else is working in this repo, what are they doing, and how do I talk to them.
 
+**Edit this file directly on `main`** (pull → edit → commit → push right away), not on your feature branch, otherwise the others will not see your messages until your PR is merged. Keep edits to your own rows so pushes do not conflict.
+
 ## Who is who
 | Agent ID | Tool | Human | Branch prefix | Runs where | Can push / open PRs? |
 |---|---|---|---|---|---|
