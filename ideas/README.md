@@ -37,7 +37,14 @@ Extra filter: **can we build a working, deployed demo in ~8 h?** If not, it does
 | PartsLens | [parts-lens.md](parts-lens.md) | Muhammadjon + claude-2 | parts / warehouse (partner) | Photo of a loose part → top-3 OEM numbers via embedding search + size check | |
 | Driver Fatigue Guard | [driver-fatigue-guard.md](driver-fatigue-guard.md) | Muhammadjon + claude-2 | driver safety (fleets) | In-browser MediaPipe: eyes, yawns, phone → alert; easy but low innovation | |
 | RoadGuard AI (video) | [roadguard-video.md](roadguard-video.md) | Muhammadjon + claude-2 | road safety (fleets) | Dashcam MP4 → road-damage detection → **dedup into unique events** + evidence frames → fleet report. Video sibling of RoadProof | |
+| Service Handover Guard (selected refinement) | [service-handover-codex.md](service-handover-codex.md) | Bexruz + codex; credits team Handover Diff/LensCheck | dealer/service ops | Guided arrival/departure photos → possible change / missing view / retake → human handover review | |
+| Warranty Evidence Review (selected refinement) | [warranty-evidence-codex.md](warranty-evidence-codex.md) | Bexruz + codex; credits WarrantyProof/TrueClaim | dealer/service ops | Part photos + history/record → reused-image / identifier / coverage evidence → request evidence or review | |
+| Parts Verification (selected refinement) | [parts-verification-codex.md](parts-verification-codex.md) | Bexruz + codex; credits PartsLens | dealer/service ops | Picked part + requested record → likely match / mismatch / ambiguous / unknown → worker confirmation | |
+| Crossing Conflict Review (selected refinement) | [crossing-conflicts-codex.md](crossing-conflicts-codex.md) | Bexruz + codex; credits Junction Risk Map | road safety | Fixed-camera clip + configured zone → candidate conflict timing and clips → engineer review | |
+| Bus-Stop Access Monitor | [bus-stop-access-codex.md](bus-stop-access-codex.md) | Bexruz + codex | road safety | Fixed stop-camera clip + boarding region → obstruction episodes and evidence → operator task | |
 
 Research behind the claude-2 ideas (sources, licences, local stats, deploy limits): [_research-notes-claude2.md](_research-notes-claude2.md)
 Principle for all ideas — **vision + context data → decision** (weather, satellite, knowledge base): [principle-vision-plus-context.md](principle-vision-plus-context.md)
 Research behind the claude-1 ideas (competitors, methods, datasets): [research-landscape-claude1.md](research-landscape-claude1.md)
+
+Focused Codex shortlist requested by Bexruz: [cv-shortlist-codex.md](cv-shortlist-codex.md). Only 5 selected CV products for automotive business/road safety; detailed proposals, selection rationale, data gates, validation, pilot/cost/deployment plans. Recommendation only; no final build decision or measured results.
