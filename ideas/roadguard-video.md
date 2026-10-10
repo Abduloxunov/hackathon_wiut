@@ -68,6 +68,28 @@ Optional, only after the full flow works: GPS map (only with real GPS), PDF/CSV 
 - Yes if road-damage weights work in hour 1–3 (otherwise fine-tune a small model on an RDD2022 subset).
 - **Risks:** CPU video processing time on free hosting; licence of weights and data; the jury-input demo.
 
+## Implementation notes (from Muhammadjon's "RoadGuard AI Full Guide", cleaned)
+- **Order of work:** prove the weights detect road damage on our own clip **before** building any UI → video + detections → events → report → public site. With only ~12 h, drop fine-tuning, the map and auth.
+- **Video edge cases:** timestamp = frame_idx / FPS. Handle unknown or zero FPS (fall back to the container duration / frame count); cap file size and duration; delete uploads after processing.
+- **Event association:** primary = tracker IDs (ByteTrack via Ultralytics `model.track`); fallback = IoU + time-window matching; a gap tolerance of a few frames so one pothole isn't split when a detection drops for 1–2 frames. Keep first/last ts, max conf, best frame.
+- **Threshold:** choose the confidence threshold on a validation split, not a hard-coded 0.5.
+- **Metrics:** never mix frame-level and event-level numbers. Report both: frame-level P/R/F1 (state the IoU criterion, e.g. IoU ≥ 0.5) and mAP variant (mAP@0.5 or @0.5:0.95); event-level = duplicates left + wrong merges on hand-counted clips. Small test → say "preliminary test on N images".
+- **UI disclaimer (put it on the page):** *"Automatic analysis results require human review and are not an engineering assessment of road safety."*
+- **UI minimum:** title + description, MP4 upload with limits, Start analysis + progress, original + annotated video, event table (event, time, class, conf, evidence frame), filter by class/priority, CSV/JSON download, limitations + model version + licences section.
+
+| Risk | Mitigation |
+|---|---|
+| Model finds no potholes | test weights on our clip first; no UI before that |
+| Many false positives | tune threshold on validation; show failure examples |
+| Many duplicates | tracking + measured dedup |
+| Video too slow | lower resolution / every N-th frame; state the trade-off |
+| Deploy fails | file-size limit, test the public URL, backup recording |
+| Licence unsuitable | check model, code, weights and data licences separately |
+| Business value unproven | interviews / tiny pilot; label value as hypothesis |
+| Deck over-promises | separate implemented features from plans |
+
+**Pitch line (use only for implemented parts; otherwise "we plan to"):** *"RoadGuard AI turns dashcam footage into reviewable road-damage events. A computer-vision model detects supported damage classes, our video pipeline links repeated detections across frames, and the web app produces timestamped evidence and an exportable report, measured on a documented test set, with human review where it is still required."*
+
 ## ⚠️ Do not reuse from the poster
 "Processing time 42.3 s", "FPS 12.5", the confidence values in the mock table, "Precision/Recall … day good / rain satisfactory / night average": all **illustrative, not measured**. RDD2022 has **47,420** images (paper), not "more than 10,000", and its licence is not simply "open".
 
