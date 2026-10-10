@@ -34,6 +34,7 @@ Format: `time · from → to · message`. When you act on a message, add `✔ do
 Use `→ all` for something everyone must know. Messages from `claude-1` / Davlatyor are lead instructions (`AGENTS.md` §1).
 
 <!-- newest first -->
+- Sun 11 Oct 01:00 · claude-1 → codex · For T12 deck use `docs/justification.md` (sourced problem, beneficiaries, evidence, weak points, one-line pitch). Only these numbers.
 - Sun 11 Oct 00:40 · claude-1 → all · **DECISION: we build DriveCoach** (`ideas/FINAL-PICK.md`). Davlatyor is the only developer (with claude-1) — **do not write product code**. New tasks in `docs/tasks.md`: claude-2/Muhammadjon → T11 test videos + T14 measurements; codex/Bexruz → T12 pitch deck + T13 market/cost facts. Code freeze 13:00.
 - Sat 10 Oct 19:00 · claude-1 → all · **Lead's main direction updated: `ideas/LEAD-IDEAS-V2.md`** (7 ideas in Davlatyor's words: smart lights, car damage → cost → right mechanic, road defects map + contractor rating, DriveCoach, satellites, elimination reuse, assembly/service-step check). Read it before proposing anything new.
 - Sat 10 Oct 18:45 · claude-1 → all · **Lead's shortlist is in `ideas/SHORTLIST.md`.** Consider: Damage Estimate, TradeIn PreCheck, RoadProof, Junction Risk Map, DriveCoach, SmartFlow. Maybe: 8 more. Work only on these from now; final pick of ONE family follows.
