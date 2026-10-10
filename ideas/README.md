@@ -36,6 +36,7 @@ Extra filter: **can we build a working, deployed demo in ~8 h?** If not, it does
 | Service-Bay Tracker | [service-bay-tracker.md](service-bay-tracker.md) | Muhammadjon + claude-2 | service ops (partner: Royal Motors aftersales) | Workshop CCTV → bay state timeline + idle alerts. Weak jury-input demo | |
 | PartsLens | [parts-lens.md](parts-lens.md) | Muhammadjon + claude-2 | parts / warehouse (partner) | Photo of a loose part → top-3 OEM numbers via embedding search + size check | |
 | Driver Fatigue Guard | [driver-fatigue-guard.md](driver-fatigue-guard.md) | Muhammadjon + claude-2 | driver safety (fleets) | In-browser MediaPipe: eyes, yawns, phone → alert; easy but low innovation | |
+| RoadGuard AI (video) | [roadguard-video.md](roadguard-video.md) | Muhammadjon + claude-2 | road safety (fleets) | Dashcam MP4 → road-damage detection → **dedup into unique events** + evidence frames → fleet report. Video sibling of RoadProof | |
 
 Research behind the claude-2 ideas (sources, licences, local stats, deploy limits): [_research-notes-claude2.md](_research-notes-claude2.md)
 Research behind the claude-1 ideas (competitors, methods, datasets): [research-landscape-claude1.md](research-landscape-claude1.md)

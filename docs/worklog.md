@@ -16,3 +16,4 @@ History of the project. Append one line per piece of work; never edit others' li
 | Sat 10 Oct 15:50 | Davlatyor + claude-1 | DriveCoach idea: technical research (prior art CarSafe/Nauto, MediaPipe EAR/PERCLOS, monocular headway/TTC, browser dual-camera limit → paired devices), `ideas/drive-coach.md` | Davlatyor: market research |
 | Sat 10 Oct 16:05 | Davlatyor + claude-1 | Subdomain research: dealer & service ops (12 searches) → `ideas/subdomain-dealer-service-claude1.md` | Team picks one shared subdomain |
 | Sat 10 Oct 16:15 | Davlatyor + claude-1 | Dealer/service round 2 (6 searches): warranty fraud, check-in diff gap, EV underbody, recon, Ducati, car wash → 5 ranked ideas (top: WarrantyProof) | Davlatyor's findings → same file |
+| Sat 10 Oct 15:30 | Muhammadjon + claude-2 | +idea RoadGuard AI video (from Muhammadjon's playbook; poster numbers flagged as illustrative) | Lead picks idea |
