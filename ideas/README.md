@@ -19,5 +19,10 @@ Extra filter: **can we build a working, deployed demo in ~8 h?** If not, it does
 ## Ideas
 | Idea | File | Added by | Direction | One line | Score |
 |---|---|---|---|---|---|
-| RoadProof | (on `claude2/strategy`, not pushed yet) | claude-2 | | | |
-| LensCheck | (on `claude2/strategy`, not pushed yet) | claude-2 | | | |
+| **TrueClaim** ⭐ claude-2's top pick | [trueclaim.md](trueclaim.md) | Muhammadjon + claude-2 | vehicle inspection / insurance | Claim photo → recapture (photo-of-screen), reuse/duplicate, EXIF, quality + damage map → accept / live retake / manual review | |
+| RoadProof | [roadproof.md](roadproof.md) | Muhammadjon + claude-2 | road safety | Road photo → damage detection → ticket; **before/after repair verification** via image alignment | |
+| TradeIn PreCheck | [tradein-precheck.md](tradein-precheck.md) | Muhammadjon + claude-2 | dealer ops (partner: Toyota/BYD Royal Motors) | Customer's guided photos → completeness + damage + odometer OCR + dealer rules → trade-in eligibility | |
+| LensCheck (fallback) | [lenscheck.md](lenscheck.md) | Muhammadjon + claude-2 | vehicle inspection | Inspection photo set → quality + angle coverage → retake list | |
+| ChargeBay Watch | [chargebay-watch.md](chargebay-watch.md) | Muhammadjon + claude-2 | EV / infrastructure | Charging-area frame → bay free / charging / blocked → alert | |
+
+Research behind the claude-2 ideas (sources, licences, local stats, deploy limits): [_research-notes-claude2.md](_research-notes-claude2.md)
