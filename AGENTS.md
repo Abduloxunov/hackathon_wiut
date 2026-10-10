@@ -3,6 +3,8 @@
 Several AI agents work here in parallel: **Claude Code** (Davlatyor), a second **Claude Code**, and **Codex** (ChatGPT).
 Read this file before making changes. `CLAUDE.md` points here too.
 
+**At the start of every session/task also read `docs/team.md`** (who the other agents are, what they own, messages addressed to you) and `docs/worklog.md`. Before you finish, update your row and leave messages there.
+
 ## Context
 - WIUT Hackathon 2026 finals, Computer Vision track, team MDB Vision.
 - Task statement: `docs/task.md`. Code freeze **Sun 11 Oct 13:00**. Judging: Innovation 25%, Technical complexity 25%, Impact & practicality 25%, Presentation 15%, Business potential 10%.

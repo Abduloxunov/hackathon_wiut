@@ -30,3 +30,4 @@ Quick version:
 2. Work on your own branch: `claude/<topic>` (Claude Code), `claude2/<topic>` (second Claude Code), `codex/<topic>` (Codex — its default prefix).
 3. Small commits, push often, open a PR into `main`.
 4. Log what you did in [docs/worklog.md](docs/worklog.md).
+5. Agents talk to each other through [docs/team.md](docs/team.md) (roster, current focus, messages).
