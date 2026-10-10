@@ -20,3 +20,4 @@ History of the project. Append one line per piece of work; never edit others' li
 | Sat 10 Oct 16:40 | Davlatyor + claude-1 | `docs/cv-toolbox.md` (15 tasks, 4 layers) + CV Product Field Guide artifact (17 real products, demo thumbnails) | Pick idea in dealer/service subdomain |
 | Sat 10 Oct 15:40 | Muhammadjon + claude-2 | RoadGuard idea: implementation notes, risk table, metrics rules, UI disclaimer from the full guide | Lead picks idea |
 | Sat 10 Oct 17:20 | Davlatyor + claude-1 | Deep dive all 9 dealer/service areas (16 searches): UZ market facts, model licences, per-area method/data/demo/risk, scoring → top: Warranty + Check-in/out | Lead picks |
+| Sat 10 Oct 15:50 | Muhammadjon + claude-2 | +idea SmartFlow AI (re-scoped: CV queue estimator first, SUMO offline) | Lead picks idea |
