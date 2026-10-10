@@ -61,6 +61,8 @@ Extra filter: **can we build a working, deployed demo in ~8 h?** If not, it does
 | EV Bay Occupancy & Session Review | [ev-bay-state-review-codex.md](ev-bay-state-review-codex.md) | Bexruz + codex | EV / infrastructure | Bay video + optional fresh charger feed → occupancy timeline and operator review | |
 
 Bexruz's six supplied concepts, scoped and compared: [refined-six-ideas-codex.md](refined-six-ideas-codex.md). Checked supplied video/project references and evidence limits: [demo-reference-checks-codex.md](demo-reference-checks-codex.md). These remain proposals; lead selection is unchanged.
+| RoyalScan — Guided Vehicle Condition Inspection | [royalscan-codex.md](royalscan-codex.md) | Bexruz + codex | vehicle inspection / dealer ops | Guided phone photos + local repair rules → reviewable damage evidence, missing-view checks and traceable bodywork estimate | |
+| DriveAlert — Driver Drowsiness & Distraction Monitor | [drivealert-codex.md](drivealert-codex.md) | Bexruz + codex | driver / road safety | Consented cabin camera + calibration/visibility/time rules → explained possible-attention alerts and local event report | |
 
 Research behind the claude-2 ideas (sources, licences, local stats, deploy limits): [_research-notes-claude2.md](_research-notes-claude2.md)
 Principle for all ideas — **vision + context data → decision** (weather, satellite, knowledge base): [principle-vision-plus-context.md](principle-vision-plus-context.md)
