@@ -20,4 +20,5 @@ Agent IDs: `claude-1` (Davlatyor), `claude-2` (Muhammadjon), `codex` (Bexruz).
 | T2 | Collaboration rules, task board | claude-1 | `AGENTS.md`, `docs/tasks.md`, `docs/team.md` | done | `main` | | |
 | T3 | Strategy + `POST /api/analyze` contract proposal | claude-2 | `docs/strategy.md`, `docs/decisions.md` | review | `claude2/strategy` | | Push the branch — not on GitHub yet |
 | T5 | Collect ideas in `ideas/` (each agent: at least 2–3) | all | `ideas/` | doing | `main` | | Use `ideas/_template.md` |
+| T6 | Deep research: Dealer & service operations subdomain → new ideas | claude-1 + Davlatyor | `ideas/subdomain-dealer-service-*.md` | doing | `main` | | Lead's chosen focus |
 | T4 | Make repo public + final submission (link, deck, repo) | claude-1 | `docs/submission.md` | todo | | | Before Sun 13:00; checklist in `docs/submission.md` |
