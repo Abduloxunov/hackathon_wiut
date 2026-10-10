@@ -1,5 +1,9 @@
 # Final pick — Davlatyor (Sun 11 Oct, 00:30)
 
+## ✅ DECISION (00:40): build **DriveCoach**. CarDoctor = "next module" slide.
+Reason: Davlatyor is the only developer; DriveCoach runs on pretrained models (MediaPipe face landmarks, COCO car detector) with **no training data**; strongest live demo; the lead's favourite. CarDoctor needs 3–4 trained models + LLM key + workshop database — not feasible solo by 13:00.
+
+
 Two ideas chosen by the lead. Both serve the **same customer: drivers and fleets (taxi, delivery, trucks)**.
 Code freeze **Sun 11 Oct 13:00**.
 
@@ -50,7 +54,7 @@ Combines many signals, not only sleepiness:
             one fleet dashboard · one customer
 ```
 
-## Proposed split (needs lead OK)
+## Split (superseded — see docs/tasks.md: Davlatyor is the only developer)
 | Who | Area |
 |---|---|
 | Davlatyor + claude-1 | Architecture, DriveCoach fusion logic (rules), integration, pitch |

@@ -7,7 +7,7 @@ Rules: `AGENTS.md` §1–3.
 Status: `todo` → `doing` → `review` (PR open) → `done` · `blocked` (say why in Notes).
 Agent IDs: `claude-1` (Davlatyor), `claude-2` (Muhammadjon), `codex` (Bexruz).
 
-**Phase now: idea generation** — everyone adds ideas to `ideas/`. Build tasks come after the lead picks the idea.
+**Phase now: BUILD (Sun 11 Oct, from 00:40). Product = DriveCoach** (`ideas/FINAL-PICK.md`). Code freeze 13:00. **Davlatyor is the only developer** (with claude-1). Others: data, testing, pitch, research.
 
 ## Open decisions (lead) — after the idea phase
 - [ ] Product / idea — proposal from claude-2: RoadProof, fallback LensCheck (`claude2/strategy`, not pushed yet).
@@ -21,4 +21,9 @@ Agent IDs: `claude-1` (Davlatyor), `claude-2` (Muhammadjon), `codex` (Bexruz).
 | T3 | Strategy + `POST /api/analyze` contract proposal | claude-2 | `docs/strategy.md`, `docs/decisions.md` | review | `claude2/strategy` | | Push the branch — not on GitHub yet |
 | T5 | Collect ideas in `ideas/` (each agent: at least 2–3) | all | `ideas/` | doing | `main` | | Use `ideas/_template.md` |
 | T6 | Deep research: Dealer & service operations subdomain → new ideas | claude-1 + Davlatyor | `ideas/subdomain-dealer-service-*.md` | doing | `main` | | Lead's chosen focus |
+| T10 | DriveCoach app: browser driver module (MediaPipe), road module, fusion rules, UI, deploy | claude-1 + Davlatyor | `src/`, `web/` | doing | `claude/drivecoach` | | Only developer |
+| T11 | Record consented test videos: driver (eyes closed, look away, phone, yawn; with/without glasses; dim light) + road (dashcam, car ahead close/far). Label times in a CSV | Muhammadjon (+claude-2) | Drive/Telegram, `data/README.md` | todo | | | No faces of non-team people; no plates |
+| T12 | Pitch deck (7 min): problem + Uzbekistan facts, live demo plan, architecture, measured results, cost/ROI for a taxi/delivery fleet, CarDoctor as next module | Bexruz (+codex) | `pitch/` | todo | `codex/pitch` | | Numbers only from our tests |
+| T13 | Market + cost facts: Uzbekistan fleets (Yandex Go parks, delivery), DMS competitor prices, road deaths, fatigue/distraction evidence — with sources | Bexruz (+codex) | `docs/market.md` | todo | `codex/market` | | Feeds T12 |
+| T14 | Test protocol + measurements: run app on T11 videos → precision/recall per event, false alarms per minute, latency, per condition (glasses, dim) | Muhammadjon (+claude-2) | `docs/results.md` | todo | `claude2/results` | | After first app build |
 | T4 | Make repo public + final submission (link, deck, repo) | claude-1 | `docs/submission.md` | todo | | | Before Sun 13:00; checklist in `docs/submission.md` |
