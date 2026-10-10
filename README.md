@@ -23,10 +23,10 @@ _Announced Sat 10 Oct, 12:30 — paste the full statement into [docs/task.md](do
 | `docs/` | Task statement, decisions, worklog |
 
 ## How we work (two AI agents, one repo)
-See [AGENTS.md](AGENTS.md) — rules for both humans and AI (Claude Code + ChatGPT).
+See [AGENTS.md](AGENTS.md) — rules for both humans and AI (Claude Code + Codex).
 
 Quick version:
 1. `git pull` before you start anything.
-2. Work on your own branch: `claude/<topic>` or `gpt/<topic>`.
+2. Work on your own branch: `claude/<topic>` (Claude Code), `claude2/<topic>` (second Claude Code), `codex/<topic>` (Codex — its default prefix).
 3. Small commits, push often, open a PR into `main`.
 4. Log what you did in [docs/worklog.md](docs/worklog.md).

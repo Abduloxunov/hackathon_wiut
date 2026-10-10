@@ -1,6 +1,6 @@
 # Rules for AI agents and humans in this repo
 
-Two AI agents work here in parallel: **Claude Code** (Davlatyor) and **ChatGPT** (Muhammadjon).
+Two AI agents work here in parallel: **Claude Code** (Davlatyor) and **Codex** (ChatGPT).
 Read this file before making changes. `CLAUDE.md` points here too.
 
 ## Context
@@ -9,7 +9,7 @@ Read this file before making changes. `CLAUDE.md` points here too.
 
 ## Avoiding conflicts
 1. **Pull first** — `git pull --rebase origin main` before starting work.
-2. **One branch per agent and topic** — `claude/<topic>` or `gpt/<topic>`. Do not commit directly to `main` except for tiny doc fixes.
+2. **One branch per agent and topic** — `claude/<topic>` (Claude Code), `claude2/<topic>` (second Claude Code), `codex/<topic>` (Codex — its default prefix). Codex: read this file before every task; open a PR, never push to `main`.. Do not commit directly to `main` except for tiny doc fixes.
 3. **Claim your area** — add a line to the "Who is doing what" table in `docs/worklog.md` before you start, so two agents don't edit the same files.
 4. **Small PRs, merged often** (every 1–2 h). Long-lived branches will conflict.
 5. **Do not reformat or rename files you don't own** — it breaks the other agent's merge.
