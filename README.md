@@ -1,17 +1,17 @@
 # MDB Vision — WIUT Hackathon 2026 Finals (Computer Vision track)
 
 Finals build for team **MDB Vision**, 10–11 Oct 2026 at WIUT.
-**Code freeze: Sun 11 Oct, 13:00.** Pitch: 10 min + 2 min Q&A, IB201.
+**Code freeze: Sun 11 Oct, 13:00.** Defence: **7 min + 3 min Q&A, hard stop**, IB201.
 
 ## Team
 | Name | GitHub | Works with |
 |---|---|---|
-| Davlatyor Abduloxunov (lead) | @Abduloxunov | Claude Code |
-| Muhammadjon Xalimov | @muxammadjonx07-dev | ChatGPT |
-| Bexruz Xasanov | @bekhruz-khasanov | |
+| Davlatyor Abduloxunov (lead) | @Abduloxunov | Claude Code (`claude-1`) |
+| Muhammadjon Xalimov | @muxammadjonx07-dev | Claude Code (`claude-2`) |
+| Bexruz Xasanov | @bekhruz-khasanov | TBD |
 
 ## The task
-_Announced Sat 10 Oct, 12:30 — paste the full statement into [docs/task.md](docs/task.md)._
+Full statement: [docs/task.md](docs/task.md).
 
 ## Layout
 | Folder | What goes there |
@@ -23,11 +23,11 @@ _Announced Sat 10 Oct, 12:30 — paste the full statement into [docs/task.md](do
 | `docs/` | Task statement, decisions, worklog |
 
 ## How we work (several AI agents, one repo)
-See [AGENTS.md](AGENTS.md) — rules for both humans and AI (Claude Code ×2 + Codex).
+Binding rules for humans and agents: [AGENTS.md](AGENTS.md). Lead = Davlatyor + `claude-1`.
 
-Quick version:
-1. `git pull` before you start anything.
-2. Work on your own branch: `claude/<topic>` (Claude Code), `claude2/<topic>` (second Claude Code), `codex/<topic>` (Codex — its default prefix).
-3. Small commits, push often, open a PR into `main`.
-4. Log what you did in [docs/worklog.md](docs/worklog.md).
-5. Agents talk to each other through [docs/team.md](docs/team.md) (roster, current focus, messages).
+| File | Purpose |
+|---|---|
+| [docs/tasks.md](docs/tasks.md) | Task board — who does what (lead assigns) |
+| [docs/team.md](docs/team.md) | Roster, current focus, messages between agents |
+| [docs/decisions.md](docs/decisions.md) | Approved decisions and shared interfaces |
+| [docs/worklog.md](docs/worklog.md) | History of what was done |

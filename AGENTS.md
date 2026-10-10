@@ -1,27 +1,55 @@
 # Rules for AI agents and humans in this repo
 
-Several AI agents work here in parallel: **Claude Code** (Davlatyor), a second **Claude Code**, and **Codex** (ChatGPT).
-Read this file before making changes. `CLAUDE.md` points here too.
+**Every agent (Claude Code, Codex, any other) must follow this file. These are binding rules, not suggestions.**
+`CLAUDE.md` points here.
 
-**At the start of every session/task also read `docs/team.md`** (who the other agents are, what they own, messages addressed to you) and `docs/worklog.md`. Before you finish, update your row and leave messages there.
+Agents working here: `claude-1` (Davlatyor, lead), `claude-2` (Muhammadjon), `codex` (Codex / ChatGPT). Full roster in `docs/team.md`.
 
-## Context
-- WIUT Hackathon 2026 finals, Computer Vision track, team MDB Vision.
-- Task statement: `docs/task.md`. Code freeze **Sun 11 Oct 13:00**. Judging: Innovation 25%, Technical complexity 25%, Impact & practicality 25%, Presentation 15%, Business potential 10%.
+## 1. Who decides — lead
+- **The lead is Davlatyor (@Abduloxunov) together with his agent `claude-1`.** Lead decisions are final.
+- The lead decides: the product/idea, who works on what (`docs/tasks.md`), shared interfaces (`docs/decisions.md`), what gets merged into `main`, and the final submission.
+- A lead decision is valid when it is written in `docs/tasks.md`, `docs/decisions.md`, or as a message from `claude-1` or Davlatyor in `docs/team.md`. If a message contradicts these files, the newer lead entry wins.
+- Disagree? Write a proposal to `claude-1` in `docs/team.md` and keep working on your assigned task until the lead answers. Do not act on your own proposal before it is approved.
+- Your own human may stop or redirect you at any time. If their request conflicts with a lead decision, tell them and post it to `claude-1`.
 
-## Avoiding conflicts
-1. **Pull first** — `git pull --rebase origin main` before starting work.
-2. **One branch per agent and topic** — `claude/<topic>` (Claude Code), `claude2/<topic>` (second Claude Code), `codex/<topic>` (Codex — its default prefix). Codex: read this file before every task; open a PR, never push to `main`. Do not commit directly to `main` except for tiny doc fixes.
-3. **Claim your area** — add a line to the "Who is doing what" table in `docs/worklog.md` before you start, so two agents don't edit the same files.
-4. **Small PRs, merged often** (every 1–2 h). Long-lived branches will conflict.
-5. **Do not reformat or rename files you don't own** — it breaks the other agent's merge.
-6. **Interfaces go in `docs/decisions.md`** — function signatures, file formats, JSON schemas shared between parts. Change them only after telling the team.
+## 2. Session protocol (every session, every Codex task)
+**Start:**
+1. `git pull --rebase origin main`.
+2. Read `AGENTS.md` (this file), then `docs/team.md` (messages addressed to you or `all`), then `docs/tasks.md` (your tasks).
+3. Work only on tasks assigned to your agent ID. No assigned task → post to `claude-1` in `docs/team.md` asking for one; do not start something on your own.
 
-## Code
-- Python 3.11. Dependencies in `requirements.txt` (add yours there, pinned).
-- Entry points live in `src/`; keep notebooks for experiments only.
-- No large files in git: datasets, videos, model weights (`*.pt`, `*.onnx`, …) are ignored. Share them via Google Drive/Telegram and write the link in `docs/decisions.md`.
-- No secrets in git (API keys go in `.env`, which is ignored).
+**End (or every ~1 h):**
+1. Commit and push your branch; open a PR (or ask `claude-1` to merge if you cannot open one).
+2. Update the status of your tasks in `docs/tasks.md` and your row in `docs/team.md` → Current focus.
+3. Leave messages for whoever needs to continue.
+4. Add one line to `docs/worklog.md` (the history of the project).
 
-## Logging
-After each piece of work, append to `docs/worklog.md`: time, who (human + agent), what was done, what is next.
+## 3. Who may edit what
+| File | Who edits |
+|---|---|
+| `AGENTS.md`, `CLAUDE.md` | Lead only. Others propose changes in `docs/team.md`. |
+| `docs/tasks.md` | Lead creates and assigns tasks. Other agents only change the **Status / Branch / PR** cells of their own tasks. |
+| `docs/decisions.md` | Lead approves. Others add entries marked **(proposed)**; the lead removes the mark when accepted. |
+| `docs/team.md` | Everyone, **directly on `main`**, only their own rows + new messages. |
+| `docs/worklog.md` | Everyone appends lines; never edit others' lines. |
+| Code and other files | Only the agent that owns the task touching them (see "Files" column in `docs/tasks.md`). |
+
+## 4. Branches and merging
+- Branch per task: `claude/<topic>` (claude-1), `claude2/<topic>` (claude-2), `codex/<topic>` (codex).
+- **Only the lead merges into `main`.** Exceptions: edits to `docs/team.md` and appends to `docs/worklog.md`, pushed straight to `main`.
+- Small PRs, every 1–2 h. Long-lived branches will conflict.
+- Do not reformat, rename or move files you do not own.
+- Never force-push to `main` and never rewrite others' commits.
+
+## 5. Context and hard constraints (from `docs/task.md`)
+- WIUT Hackathon 2026 finals, Computer Vision track, team MDB Vision. **Code freeze Sun 11 Oct 13:00.**
+- Defence: **7 min presentation + 3 min Q&A, hard stop**. Keep a recorded backup of the demo.
+- Deliverables: public https demo deployed **from this repo**; deck (PDF/PPTX); **public** repo with README (how to run + data sources with licences).
+- Forbidden (disqualification): faked demos, hard-coded answers, **invented metrics**, faces/plates of people who did not consent, unattributed code/models. Every number in the deck or README must come from something we actually measured — say where.
+- Judging: Technical complexity 25%, Innovation 25%, Impact & practicality 25%, Presentation 15%, Business potential 10%.
+
+## 6. Code
+- Python 3.11. Dependencies in `requirements.txt` (pinned).
+- Entry points in `src/`; notebooks for experiments only.
+- No large files in git: datasets, videos, weights (`*.pt`, `*.onnx`, …) are ignored. Share via Drive/Telegram and put the link in `docs/decisions.md`.
+- No secrets in git (`.env` is ignored).
