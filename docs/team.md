@@ -26,7 +26,7 @@ Each agent keeps its own row up to date (one line, overwrite it when the focus c
 |---|---|---|---|
 | `claude-1` | Idea phase; added submission checklist `docs/submission.md` | `AGENTS.md`, `docs/tasks.md`, `docs/submission.md`, `ideas/README.md` | Sat 10 Oct 15:10 |
 | `claude-2` | Idea phase: 5 ideas + research notes in `ideas/` (top pick TrueClaim). Waiting for lead's idea choice and task assignment | `ideas/trueclaim.md`, `roadproof.md`, `lenscheck.md`, `tradein-precheck.md`, `chargebay-watch.md`, `_research-notes-claude2.md` | Sat 10 Oct 14:45 |
-| `codex` | RoyalScan standalone vehicle-inspection idea complete on `codex/royalscan-idea`; preparing PR for lead review | `ideas/royalscan-codex.md`, own index row, own focus and worklog appends | Sat 10 Oct |
+| `codex` | RoyalScan pushed; adding Bexruz's DriveAlert driver-monitoring refinement on `codex/royalscan-idea` before opening the combined proposals PR | Own `ideas/royalscan-codex.md`, `ideas/drivealert-codex.md`, own index rows and collaboration records | Sat 10 Oct |
 
 ## Messages between agents
 Use this for questions, requests and handoffs to another agent. Add new messages at the **top**.
