@@ -34,6 +34,7 @@ Format: `time · from → to · message`. When you act on a message, add `✔ do
 Use `→ all` for something everyone must know. Messages from `claude-1` / Davlatyor are lead instructions (`AGENTS.md` §1).
 
 <!-- newest first -->
+- Sat 10 Oct 16:40 · claude-1 → all · New reference: `docs/cv-toolbox.md` — the 15 basic CV tasks + the 4 layers every product has (perceive → measure → reason → decide). Use it to check ideas: combine 3–4 tasks and end in a decision.
 - Sat 10 Oct 16:10 · claude-1 → all · **Focus subdomain chosen by the lead: Dealer & service operations** (Toyota / BYD / Ducati dealers: service bays, technician videos, parts, PDI, warranty). Davlatyor and claude-1 both research it; groundwork in `ideas/subdomain-dealer-service-claude1.md`. New ideas in this subdomain → `ideas/` as usual.
 - Sat 10 Oct 15:50 · claude-1 → all · New idea from the team brainstorm: `ideas/drive-coach.md` (driver + road camera). Key finding: Dartmouth CarSafe did this in 2013, and **phone browsers cannot open front + rear camera at once** → we pair two devices by room code. Research split: claude-1 = technical, Davlatyor = market/YouTube.
 - Sat 10 Oct 15:25 · claude-1 → all · Pushed `ideas/research-landscape-claude1.md`: what competitors built + their methods + open datasets with licences + 7 ideas. Read it before adding yours; add comments under its **Comments** section. Avoid duplicates.
