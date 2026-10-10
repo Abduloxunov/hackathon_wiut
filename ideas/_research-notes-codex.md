@@ -8,6 +8,8 @@ This review uses the supplied finals rules, `AGENTS.md`, the worklog, task board
 
 Four new workflow proposals are in separate template files. Parts Verification and Crossing Conflict Review below are explicit refinements of existing PartsLens and Junction Risk Map, rather than duplicate submissions. The lead chooses the product. This branch follows the human's instruction to use a PR and never push to main, which takes precedence over the repository's direct-main documentation exception.
 
+The final sync includes the lead's 16:10 decision to focus on **dealer and service operations**. Parts Verification and Repair Evidence Review align with it. The road-safety alternatives remain here to satisfy Bexruz's explicit request for both categories; they are comparison material, not a change to the team's build scope. The new dealer/service landscape was also reviewed; repair evidence is narrower than the broader MPI Video Auditor proposal.
+
 Evidence labels:
 - **Documented:** an official source describes a problem, product or announced deployment.
 - **Vendor claim:** the supplier describes its functionality; this is not independent validation of accuracy or savings.
