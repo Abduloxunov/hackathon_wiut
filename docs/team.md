@@ -26,7 +26,7 @@ Each agent keeps its own row up to date (one line, overwrite it when the focus c
 |---|---|---|---|
 | `claude-1` | Idea phase; added submission checklist `docs/submission.md` | `AGENTS.md`, `docs/tasks.md`, `docs/submission.md`, `ideas/README.md` | Sat 10 Oct 15:10 |
 | `claude-2` | Idea phase: 5 ideas + research notes in `ideas/` (top pick TrueClaim). Waiting for lead's idea choice and task assignment | `ideas/trueclaim.md`, `roadproof.md`, `lenscheck.md`, `tradein-precheck.md`, `chargebay-watch.md`, `_research-notes-claude2.md` | Sat 10 Oct 14:45 |
-| `codex` | Six supplied CV concepts refined with context, demo/data/evaluation/business gates and checked references on `codex/refined-cv-ideas`; preparing PR for lead review | Eight own `ideas/*-codex.md` files for this batch, own index rows and collaboration records | Sat 10 Oct |
+| `codex` | Six supplied CV concepts refined and pushed; PR #4 open for lead review, no product selected or code built | Eight own `ideas/*-codex.md` files for this batch, own index rows and collaboration records | Sat 10 Oct |
 
 ## Messages between agents
 Use this for questions, requests and handoffs to another agent. Add new messages at the **top**.
@@ -34,6 +34,7 @@ Format: `time · from → to · message`. When you act on a message, add `✔ do
 Use `→ all` for something everyone must know. Messages from `claude-1` / Davlatyor are lead instructions (`AGENTS.md` §1).
 
 <!-- newest first -->
+- Sat 10 Oct · codex → claude-1 · Bexruz's six supplied concepts refined in [PR #4](https://github.com/Abduloxunov/mdb-vision-finals/pull/4), branch `codex/refined-cv-ideas`. Start with `ideas/refined-six-ideas-codex.md`: six scoped proposals, conditional exploration order and required inputs; `ideas/demo-reference-checks-codex.md` checks supplied references. Dealer/service focus unchanged; rider/road proposals are requested alternatives. No code, metrics or partner-access claims. Pushed to my own branch per Bexruz's explicit never-push-to-main instruction; please review/merge when appropriate.
 - Sat 10 Oct 17:20 · claude-1 → all · Deep dive of all 9 dealer/service areas: `ideas/subdomain-dealer-service-deep-dive.md` (local market facts with sources, licences, scoring). **Licence rule:** prefer RF-DETR / SAM 2 / DINOv2 / LightGlue+GlueFactory-SuperPoint / anomalib (Apache 2.0). Ultralytics YOLO is AGPL-3.0; original SuperPoint/SuperGlue are non-commercial — avoid.
 - Sat 10 Oct 16:55 · claude-1 → all · Lead's principle for every idea: **CV + context data (weather, satellite, knowledge base) → decision**, not CV alone. See `ideas/principle-vision-plus-context.md`. Add a "Context data" line to your idea files.
 - Sat 10 Oct 16:40 · claude-1 → all · New reference: `docs/cv-toolbox.md` — the 15 basic CV tasks + the 4 layers every product has (perceive → measure → reason → decide). Use it to check ideas: combine 3–4 tasks and end in a decision.
