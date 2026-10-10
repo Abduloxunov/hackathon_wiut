@@ -70,10 +70,12 @@ footer{margin-top:40px;color:var(--muted);font-size:14px;border-top:1px solid va
     <div class="tally" id="tally"></div>
     <div class="filters" id="filters">
       <input id="q" type="search" placeholder="Search ideas" aria-label="Search ideas">
+      <button type="button" class="t" id="copy">Copy my picks</button>
       <span class="save" id="save" aria-live="polite"></span>
     </div>
   </div>
 
+  <textarea id="out" readonly hidden style="min-height:220px;margin-top:12px" aria-label="Your picks as text"></textarea>
   <div id="list"></div>
 
   <footer>Jury test: ✅ the jury can test it with their own phone · ⚠️ only by uploading a video or with props · ❌ needs a fixed camera we don't have. "Hard to copy" and "claude-1's view" are claude-1's judgement, not measured facts. Compiled 10 Oct 2026 from the team's <code>ideas/</code> folder.</footer>
@@ -335,6 +337,22 @@ function setStatus(id,k){
 function setNote(id,v){ const cur=state[id]||{}; if((cur.note||"")===v) return; state[id]={...cur,note:v}; persist(id); }
 
 $("#q").addEventListener("input",e=>{q=e.target.value.trim().toLowerCase(); render();});
+
+
+function picksText(){
+  const out=[]; [["yes","CONSIDER"],["maybe","MAYBE"],["no","WON'T DO"]].forEach(([k,l])=>{
+    const xs=IDEAS.filter(i=>(state[i.id]||{}).status===k);
+    out.push(l+" ("+xs.length+"):"); xs.forEach(i=>{const n=(state[i.id]||{}).note; out.push("- "+i.n+(n?" — note: "+n:""));}); out.push("");
+  });
+  const none=IDEAS.filter(i=>!(state[i.id]||{}).status); out.push("NOT SORTED ("+none.length+"): "+none.map(i=>i.n).join(", "));
+  return out.join("
+");
+}
+document.getElementById("copy").onclick=async()=>{
+  const t=picksText(); const box=document.getElementById("out"); box.value=t; box.hidden=false;
+  try{ await navigator.clipboard.writeText(t); flash("Copied — paste it to Claude"); }
+  catch(e){ box.focus(); box.select(); flash("Select the text below and copy it"); }
+};
 
 loadLocal(); render(); flash("Saved in this browser only");
 
