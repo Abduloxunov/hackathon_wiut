@@ -44,6 +44,14 @@ Extra filter: **can we build a working, deployed demo in ~8 h?** If not, it does
 | Driver Fatigue Guard | [driver-fatigue-guard.md](driver-fatigue-guard.md) | Muhammadjon + claude-2 | driver safety (fleets) | In-browser MediaPipe: eyes, yawns, phone → alert; easy but low innovation | |
 | RoadGuard AI (video) | [roadguard-video.md](roadguard-video.md) | Muhammadjon + claude-2 | road safety (fleets) | Dashcam MP4 → road-damage detection → **dedup into unique events** + evidence frames → fleet report. Video sibling of RoadProof | |
 | SmartFlow AI | [smartflow.md](smartflow.md) | Muhammadjon + claude-2 | city traffic | Junction video → queues per approach → **recommended** green split (advisory) + SUMO fixed-vs-adaptive benchmark. Weak jury input; overlaps claude-1 Junction Risk Map | |
+| Vehicle Damage Evidence & Estimate Review | [vehicle-damage-review-codex.md](vehicle-damage-review-codex.md) | Bexruz + codex | vehicle inspection / dealer ops | Guided photos + authorised rate card → visible-damage evidence, retakes and appraiser-reviewed estimate | |
+| PDI Evidence Checklist Assistant | [pdi-evidence-assistant-codex.md](pdi-evidence-assistant-codex.md) | Bexruz + codex | dealer / service ops | Variant-specific photos + checklist → unresolved visible items and supervisor review | |
+| Rider Gear Evidence Review | [rider-gear-review-codex.md](rider-gear-review-codex.md) | Bexruz + codex | road safety | Consenting rider clip + visibility/coaching rules → helmet-evidence timeline for instructor review | |
+| Road Hazard Tickets & Follow-up | [road-hazard-tickets-codex.md](road-hazard-tickets-codex.md) | Bexruz + codex | road safety / maintenance | Road image/clip + real location/context → unique reviewable maintenance tickets | |
+| Parts Order Verification | [parts-order-verification-codex.md](parts-order-verification-codex.md) | Bexruz + codex | dealer / service ops | Fresh part/label photos + expected order/fitment records → mismatch or worker-confirmed match | |
+| EV Bay Occupancy & Session Review | [ev-bay-state-review-codex.md](ev-bay-state-review-codex.md) | Bexruz + codex | EV / infrastructure | Bay video + optional fresh charger feed → occupancy timeline and operator review | |
+
+Bexruz's six supplied concepts, scoped and compared: [refined-six-ideas-codex.md](refined-six-ideas-codex.md). Checked supplied video/project references and evidence limits: [demo-reference-checks-codex.md](demo-reference-checks-codex.md). These remain proposals; lead selection is unchanged.
 
 Research behind the claude-2 ideas (sources, licences, local stats, deploy limits): [_research-notes-claude2.md](_research-notes-claude2.md)
 Principle for all ideas — **vision + context data → decision** (weather, satellite, knowledge base): [principle-vision-plus-context.md](principle-vision-plus-context.md)
