@@ -26,7 +26,27 @@ Vendor numbers = their claims, unverified. Not for the deck.
 
 **Local signal:** BYD Seal 6 buyer in Tashkent, car at service 4 days, parts "coming from China" (kun.uz, 12–13 Mar 2026) — service capacity/parts is a real pain ([kun.uz](https://kun.uz/ru/news/2026/03/13/3-raza-vyshla-iz-stroya-za-10-dney-v-tashkente-kuplennyy-byd-seal-6-okazalsya-brakovannym)). Single anecdote, not a statistic.
 
-## Gaps / idea seeds (not yet developed)
+
+## Round 2 (16:15) — deeper sources
+| Area | Finding | Source |
+|---|---|---|
+| **Warranty fraud (dealer → OEM)** | Industry estimate (no primary study): fraud/abuse **10–20% of warranty spend**; schemes: labour-time padding, duplicate claims, parts claimed replaced without proof, parts-return irregularities | [AutoSuccess](https://www.autosuccessonline.com/warranty-fraud-in-the-dealer-network-costs/) |
+| Warranty photos | Truepic: **same photos of turbos/rims reused across claims** with small angle/time changes — a Canadian case: 29 claims, $350k; AI-generated images now a risk; engine/transmission claims harder to fake | [Truepic](https://www.truepic.com/blog/snapshot-impact-of-image-authenticity-for-the-auto-warranty-industry), [Truepic AI fraud](https://www.truepic.com/blog/ai-automotive-fraud) |
+| Warranty AI vendors | ServiceCPQ (3-stage: completeness → deterministic image checks → multimodal cross-doc), Tavant (image anomaly detection) | [ServiceCPQ](https://www.servicecpq.com/warranty-claims-management), [Tavant](https://tavant.com/2024/09/25/) |
+| Check-in / check-out | myKaarma video walkaround = **manual tags**; DealerWare compares timestamped photos side by side, **AI damage diff explicitly "not in this release"** → gap confirmed | [myKaarma](https://mykaarma.com/blog/mykaarma-launches-simple-video-walkaround-app-for-auto-dealer-service-departments/), [DealerWare](https://support.dealerware.com/hc/en-us/articles/53458053275283-Vehicle-Walkaround-Inspection) |
+| EV underbody at intake | Jaguar I-Pace ~$40k underbody hole, shop suspected (UVeye story); BYD Tang motor torn off after underbody impact (Jul 2026); Vumo UB Scanner | [VehicleServicePros](https://www.vehicleservicepros.com/industry-news/press-release/21213446/uveye-routine-inspection-discovers-40k-hole-in-jaguar-i-pace-ev), [CarNewsChina](https://carnewschina.com/2026/07/14/byd-blames-underbody-collision-for-tang-motor-detachment-in-shenyang-china/), [Vumo](https://vumo.ai/ub-scanner/) |
+| Recon estimate | autobiz Noa: photos → damage + severity + cost from the dealer's own cost grid; Cox: dealers underestimate recon by ~$800 (exec quote) | [autobiz](https://office.autobiz.com/en/noa), [Auto Remarketing](https://www.autoremarketing.com/ar/technology/cox-automotive-leans-into-ai-tools-to-improve-inventory-management/) |
+| Ducati | Service bulletins: chain stretch + sprocket wear check, chain kit ≤ 20,000 km; **no AI photo check found** | [NHTSA TSB 2023](https://static.nhtsa.gov/odi/tsbs/2023/MC-10240311-0001.pdf), [NHTSA TSB 2019](https://static.nhtsa.gov/odi/tsbs/2019/MC-10169798-0001.pdf) |
+| Car wash QC | No AI cleanliness grading found; customers complain of missed spots | [Trustpilot](https://uk.trustpilot.com/review/www.imocarwash.com/location/bad-oeynhausen) |
+
+## Ideas in this subdomain (claude-1, ranked)
+1. **WarrantyProof** — partner product for the **warranty department of Toyota/BYD Royal Motors** (importer checks dealer/service claims). Failed-part photos → (a) **re-use detection** across all past claims (perceptual hash + DINOv2/CLIP embeddings, robust to crop/angle), (b) authenticity (recapture, edit, AI-generated), (c) **part identity** — does the photo show the claimed part? (embedding retrieval vs catalogue images + OCR of stamped part number), (d) VIN/odometer OCR vs claim. Output: auto-approve / ask for more evidence / audit. Same trust core as TrueClaim/ClaimProof, different payer → we can pitch one engine, two markets.
+2. **MPI Video Auditor** — every technician video is checked: is the recommended repair visible? (pad thickness vs limit, tread depth class, leak, cracked belt). Protects the customer from fake upsell and the dealer from weak videos ("I'm not gonna look at 10,000 videos").
+3. **Check-in/Check-out Diff (+ EV underbody)** — the AI part DealerWare has not shipped: aligned before/after walkaround → only new damage; EV battery underbody photo at intake for BYD.
+4. **Ducati Chain Check** — photo of chain + sprocket next to a ruler/coin → stretch and tooth wear estimate → replace now/soon. Niche, unoccupied, Ducati partner.
+5. **Service step verifier** — IndustReal-style step recognition (all wheel nuts torqued, cap closed). Strong tech, hard live demo.
+
+## Round 1 idea seeds
 1. **MPI video auditor** — AI checks every technician video: is the claimed problem actually visible (worn pad, leak, cracked belt)? Protects customers from fake upsell and dealers from bad videos. Nobody publishes this check.
 2. **Service step verifier** — bay camera confirms each job step happened (e.g. all 5 wheel nuts torqued, oil cap back on) — IndustReal method applied to car service.
 3. **Parts photo → catalogue match + counterfeit flag** for the parts counter (embeddings + OCR of stamped numbers + packaging check).
