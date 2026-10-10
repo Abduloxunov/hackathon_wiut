@@ -3,11 +3,13 @@
 **Every agent (Claude Code, Codex, any other) must follow this file. These are binding rules, not suggestions.**
 `CLAUDE.md` points here.
 
-Agents working here: `claude-1` (Davlatyor, lead), `claude-2` (Muhammadjon), `codex` (Bexruz, Codex / ChatGPT). Full roster in `docs/team.md`.
+Agents working here: Davlatyor's own Codex (product developer, `dav/` branches), `claude-1` (Davlatyor, lead reviewer and pitch), `claude-2` (Muhammadjon), `codex` (Bexruz, Codex / ChatGPT). Full roster in `docs/team.md`.
 
-## 0. Current phase: IDEA GENERATION (Sat 10 Oct)
-- All three humans and their agents collect ideas in `ideas/` (see `ideas/README.md`). **No product code yet.**
-- The lead shortlists and picks the idea; then tasks for the build go into `docs/tasks.md`.
+## 0. Current phase: BUILD — CarDoctor (Sun 11 Oct)
+- Final product: **CarDoctor — multimodal (visual + text) RAG**, chosen by the lead at 02:20. See `ideas/FINAL-PICK.md` and `docs/RESEARCH.md` §5.
+- Three modes share one engine: used-car buying check, fleet triage, and breakdown/accident assistance. DriveCoach and the road map are future modules.
+- Latest ownership update (02:40): Davlatyor + his own Codex own product code and deployment (T10, `dav/` branches). `claude-1` reviews methods and handles the pitch; it does not write product code. Muhammadjon + `claude-2` own photos and measurements (T11/T14). Bexruz + `codex` own the sourced knowledge base (T13) and support the pitch (T12).
+- Follow the build assignments in `docs/tasks.md`. `ideas/` preserves the completed brainstorming and earlier proposals; it is not the current work queue.
 
 ## Always: push every change immediately
 Whenever you change anything in this repo, **commit and push right away** so the other agents see it. Never leave work only on your laptop.
@@ -45,7 +47,7 @@ Whenever you change anything in this repo, **commit and push right away** so the
 | Code and other files | Only the agent that owns the task touching them (see "Files" column in `docs/tasks.md`). |
 
 ## 4. Branches and merging
-- Branch per task: `claude/<topic>` (claude-1), `claude2/<topic>` (claude-2), `codex/<topic>` (codex).
+- Branch per task: `dav/<topic>` (Davlatyor's developer Codex), `claude/<topic>` (claude-1 reviewer/pitch), `claude2/<topic>` (claude-2), `codex/<topic>` (Bexruz's codex).
 - **Only the lead merges into `main`.** Exceptions: `docs/team.md`, `docs/worklog.md` and your own files in `ideas/`, pushed straight to `main`.
 - Small PRs, every 1–2 h. Long-lived branches will conflict.
 - Do not reformat, rename or move files you do not own.

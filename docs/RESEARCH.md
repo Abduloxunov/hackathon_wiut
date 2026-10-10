@@ -2,7 +2,7 @@
 
 **What this is:** the evidence of the research our team did before building. In the 14 hours after the task announcement (Sat 10 Oct 12:30 → Sun 11 Oct 02:30) the three of us and our AI agents (Claude Code ×2, OpenAI Codex) researched the problem space, collected **44 product ideas** across all four task directions, mapped each idea to computer-vision methods, checked prior art, models, datasets and licences, gathered local (Uzbekistan) evidence, sorted the ideas, validated the three finalists against the judging criteria, and chose **CarDoctor — a multimodal (visual + text) RAG system** (§5).
 
-Team: Davlatyor Abduloxunov (lead, developer) · Muhammadjon Xalimov · Bexruz Xasanov.
+Team: Davlatyor Abduloxunov (lead, developer with his own Codex on `dav/` branches) · Muhammadjon Xalimov · Bexruz Xasanov. Latest handoff (Sun 11 Oct 02:40): claude-1 reviews methods and handles the pitch; it does not write product code. Current assignments: [docs/tasks.md](tasks.md).
 Detailed working notes live in [`ideas/`](../ideas) and [`docs/`](.); this file is the summary. **All numbers are from the linked sources; vendor numbers are marked as claims.**
 
 ---

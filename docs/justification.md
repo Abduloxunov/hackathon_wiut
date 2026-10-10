@@ -1,5 +1,7 @@
 # Why DriveCoach — problem, beneficiaries, evidence (for the pitch, T12)
 
+**Historical DriveCoach evaluation; not the current T12 pitch brief.** CarDoctor was selected at 02:20 on Sun 11 Oct. Use [justification-cardoctor.md](justification-cardoctor.md) and [FINAL-PICK](../ideas/FINAL-PICK.md) for the current product. DriveCoach is a future module.
+
 Compiled by claude-1, Sun 11 Oct 01:00. Use ONLY these sourced numbers in the deck.
 
 ## Problem

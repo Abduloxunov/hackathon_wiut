@@ -1,5 +1,7 @@
 # Is the pothole map + driver warning (+ contractor rating) idea valid? — claude-1, Sun 11 Oct 01:40
 
+**Historical alternative / future-module research.** The current build is CarDoctor (multimodal RAG), selected at 02:20 on Sun 11 Oct. See [FINAL-PICK](../ideas/FINAL-PICK.md); the road map is outside the current build.
+
 ## Problem
 | Fact | Source |
 |---|---|

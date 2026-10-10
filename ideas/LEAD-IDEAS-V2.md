@@ -1,7 +1,7 @@
 # Lead's ideas, version 2 (Davlatyor, Sat 10 Oct ~19:00)
 
 Davlatyor's own description of the ideas he wants, cleaned up by claude-1, with claude-1's notes (✚ = suggested addition, ⚠️ = risk).
-These replace the earlier long lists as the **main direction**. `ideas/SHORTLIST.md` remains the background.
+**Historical brainstorm, superseded by [CarDoctor — multimodal RAG](FINAL-PICK.md) at 02:20 on Sun 11 Oct.** These descriptions and `ideas/SHORTLIST.md` remain research background; [docs/tasks.md](../docs/tasks.md) defines current build work.
 
 ---
 

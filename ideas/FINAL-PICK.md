@@ -1,11 +1,45 @@
-# Final pick — Davlatyor (Sun 11 Oct, 00:30)
+# Final pick — CarDoctor (Davlatyor, Sun 11 Oct 02:20)
 
-## ✅ FINAL DECISION (02:20): build **CarDoctor — multimodal (visual + text) RAG**. Three modes: used-car buying check · fleet triage · breakdown/accident. Scored vs jury criteria ≈7.5 vs pothole map ≈7.1 vs DriveCoach (common). DriveCoach + road map = next modules.
-Architecture: photos → image embeddings (CLIP/DINOv2) + zero-shot detection → vector DB #1 (visual symptom library: warning lights, smoke colours, leak colours, damage types) · words → multilingual text embeddings → vector DB #2 (repair knowledge + known issues of popular Uzbek models) · LLM answers ONLY from retrieved items with citations · workshop KB + map. Vision must visibly do the work (show matched symptom + similarity before LLM text).
+## Current decision
+Build **CarDoctor — multimodal (visual + text) RAG**. This replaces the 00:40 DriveCoach choice. DriveCoach and the road map remain future modules, outside the current hackathon build. Code freeze: **Sun 11 Oct 13:00**.
+
+Car photos + the driver's words and car model → retrieve matching visual and repair evidence → explain a first assessment with citations → urgency, indicative cost range, and a suitable workshop.
+
+## Three modes, one engine
+| Mode | User | Planned output |
+|---|---|---|
+| Used-car buying check | Private buyer or dealer trade-in desk | Visible-condition evidence, warning-light/smoke/leak matches, model-specific knowledge, cost ranges and questions for the seller |
+| Fleet triage | Taxi, delivery or truck fleet | Evidence-backed urgency and repair type, workshop match, vehicle history |
+| Breakdown / accident assistance | Driver | Possible causes supported by retrieved evidence, indicative cost range, workshop map |
+
+## Planned architecture
+1. **Photos:** image embeddings (CLIP/DINOv2 candidates), with zero-shot detection as planned, retrieve matches from a visual reference library of warning lights, smoke/leak appearances and damage types. Show matched references and similarity before generated text.
+2. **Words and car model:** multilingual text embeddings retrieve sourced repair knowledge, known model issues, symptom/cause/urgency records and repair types.
+3. **Explanation:** the LLM uses the retrieved evidence and cites it. This is an intended constraint to implement and evaluate, not a guarantee that retrieval eliminates hallucinations. Missing or ambiguous evidence must be reported.
+4. **Workshop matching:** use sourced workshop records and repair types to show suitable locations. Cost ranges require dated local evidence; a workshop confirms the diagnosis and final price.
+
+This final design uses retrieval over a reference library rather than committing to separately trained damage, smoke, leak and warning-light classifiers. Exact models, API contracts and data schemas remain for the developer to confirm in [decisions](../docs/decisions.md).
+
+## Current responsibilities
+| Owner | Tasks |
+|---|---|
+| Davlatyor + own Codex (`dav/`) | T10: all product code, integration, UI and deployment; latest handoff at 02:40 |
+| claude-1 | Review methods and implementation risks; handle pitch deck; no product code |
+| Muhammadjon + claude-2 | T11: reference/test photos and provenance; T14: retrieval top-1/top-3 accuracy, latency, cost and failure cases |
+| Bexruz + codex | T13: sourced repair/model knowledge, dated price evidence and workshop records; support T12 in coordination with claude-1 |
+
+[docs/tasks.md](../docs/tasks.md) is the current assignment source. No task is reassigned by this summary.
+
+## Demo and business plan
+Fresh supported photos plus a symptom description should produce visible reference matches, cited evidence, a first assessment and a workshop match. Printed icons and coloured liquids are controlled demonstration inputs, not proof of performance on real warning lights or leaks. Report only measured results on separate test photos.
+
+Proposed revenue: workshop lead fees, fleet subscriptions and per-report fees. These are business hypotheses, not measured revenue or agreed partner contracts. Startup versus Partner product remains a lead decision.
+
+## Historical alternatives and earlier implementation proposal (superseded)
+The material below preserves the earlier two-module concept, direct-classifier proposal, previous split and timing risks. It does not define the current scope or architecture. Comparison scores in earlier notes are internal estimates, not jury results or product metrics.
 
 ## (superseded) DECISION (00:40): build **DriveCoach**. CarDoctor = "next module" slide.
 Reason: Davlatyor is the only developer; DriveCoach runs on pretrained models (MediaPipe face landmarks, COCO car detector) with **no training data**; strongest live demo; the lead's favourite. CarDoctor needs 3–4 trained models + LLM key + workshop database — not feasible solo by 13:00.
-
 
 Two ideas chosen by the lead. Both serve the **same customer: drivers and fleets (taxi, delivery, trucks)**.
 Code freeze **Sun 11 Oct 13:00**.

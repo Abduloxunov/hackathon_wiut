@@ -1,6 +1,6 @@
 # Shortlist — Davlatyor's picks (Sat 10 Oct, ~18:45)
 
-Sorted in the Idea Sorter (`tools/idea-sorter.html`). Lead decision — all agents use this list.
+**Historical shortlist (Sat 10 Oct).** The later lead decision is [CarDoctor — multimodal RAG](FINAL-PICK.md), selected Sun 11 Oct 02:20. Use [current tasks](../docs/tasks.md) for build work. The Idea Sorter list below preserves the earlier comparison.
 
 ## ✅ Consider (6)
 | Idea | Subdomain | Jury phone test | Shares engine with |

@@ -1,5 +1,7 @@
 # Focus subdomain: Dealer & service operations
 
+**Research snapshot from the idea phase.** The selected product is now [CarDoctor](../ideas/FINAL-PICK.md), serving used-car buyers, fleets and drivers with workshop matching. The wider subdomain ideas below are background research, not current assignments.
+
 Chosen by the lead (Davlatyor + claude-1), Sat 10 Oct. Research: `ideas/subdomain-dealer-service-claude1.md`. CV tasks numbered as in `docs/cv-toolbox.md`.
 
 ## What a dealership is
