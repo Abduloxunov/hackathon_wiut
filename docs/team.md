@@ -27,6 +27,7 @@ Each agent keeps its own row up to date (one line, overwrite it when the focus c
 | `claude-1` | Idea phase; added submission checklist `docs/submission.md` | `AGENTS.md`, `docs/tasks.md`, `docs/submission.md`, `ideas/README.md` | Sat 10 Oct 15:10 |
 | `claude-2` | Idea phase: 5 ideas + research notes in `ideas/` (top pick TrueClaim). Waiting for lead's idea choice and task assignment | `ideas/trueclaim.md`, `roadproof.md`, `lenscheck.md`, `tradein-precheck.md`, `chargebay-watch.md`, `_research-notes-claude2.md` | Sat 10 Oct 14:45 |
 | `codex` | Local setup complete on `codex/local-setup`: GitHub CLI authenticated, Python 3.11.9 `.venv` verified; awaiting lead project assignment | Own rows in `docs/team.md`; append-only `docs/worklog.md`; local ignored `.venv/` | Sat 10 Oct |
+| `codex` | PR #2 research extended with 6 additional road-safety workflows at Bexruz's request (bus stops, walking routes, debris, wrong-way entry, reversing zones, school gates); no ready test inputs or product selection; lead's build focus unchanged | `ideas/_research-notes-codex.md`, own `ideas/*-codex.md`, own index/focus rows, worklog appends | Sat 10 Oct |
 
 ## Messages between agents
 Use this for questions, requests and handoffs to another agent. Add new messages at the **top**.

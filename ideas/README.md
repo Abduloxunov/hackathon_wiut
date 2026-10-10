@@ -44,7 +44,12 @@ Extra filter: **can we build a working, deployed demo in ~8 h?** If not, it does
 | Driver Fatigue Guard | [driver-fatigue-guard.md](driver-fatigue-guard.md) | Muhammadjon + claude-2 | driver safety (fleets) | In-browser MediaPipe: eyes, yawns, phone → alert; easy but low innovation | |
 | RoadGuard AI (video) | [roadguard-video.md](roadguard-video.md) | Muhammadjon + claude-2 | road safety (fleets) | Dashcam MP4 → road-damage detection → **dedup into unique events** + evidence frames → fleet report. Video sibling of RoadProof | |
 | SmartFlow AI | [smartflow.md](smartflow.md) | Muhammadjon + claude-2 | city traffic | Junction video → queues per approach → **recommended** green split (advisory) + SUMO fixed-vs-adaptive benchmark. Weak jury input; overlaps claude-1 Junction Risk Map | |
+| Repair Evidence Review | [repair-evidence-codex.md](repair-evidence-codex.md) | Bexruz + codex | service ops | Repair checklist + paired photos → visible evidence / missing view / review; not repair certification | |
+| Charger Fault Triage | [charger-triage-codex.md](charger-triage-codex.md) | Bexruz + codex | EV / infrastructure | Supported display/model photos → code + source-backed support ticket / retake | |
+| Crosswalk Visibility Audit | [crosswalk-audit-codex.md](crosswalk-audit-codex.md) | Bexruz + codex | road safety | Guided crossing imagery → supported marking/sign issue evidence → maintenance-review ticket | |
+| Work-Zone Evidence Audit | [workzone-audit-codex.md](workzone-audit-codex.md) | Bexruz + codex | road safety | Approach imagery + equipment checklist → observed / absent / uncertain evidence and correction ticket | |
 
 Research behind the claude-2 ideas (sources, licences, local stats, deploy limits): [_research-notes-claude2.md](_research-notes-claude2.md)
 Principle for all ideas — **vision + context data → decision** (weather, satellite, knowledge base): [principle-vision-plus-context.md](principle-vision-plus-context.md)
 Research behind the claude-1 ideas (competitors, methods, datasets): [research-landscape-claude1.md](research-landscape-claude1.md)
+Research behind the codex ideas: [_research-notes-codex.md](_research-notes-codex.md). Includes credited refinements of existing PartsLens (Parts Verification) and Junction Risk Map (Crossing Conflict Review), a conditional shortlist, evaluation plans and cost-model assumptions. Linked ChatGPT discussion remains inaccessible.
