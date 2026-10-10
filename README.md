@@ -22,8 +22,8 @@ _Announced Sat 10 Oct, 12:30 — paste the full statement into [docs/task.md](do
 | `pitch/` | Deck, demo video, screenshots |
 | `docs/` | Task statement, decisions, worklog |
 
-## How we work (two AI agents, one repo)
-See [AGENTS.md](AGENTS.md) — rules for both humans and AI (Claude Code + Codex).
+## How we work (several AI agents, one repo)
+See [AGENTS.md](AGENTS.md) — rules for both humans and AI (Claude Code ×2 + Codex).
 
 Quick version:
 1. `git pull` before you start anything.
