@@ -165,6 +165,48 @@ Cost per case = compute/API + allocated storage/network + human-review labour + 
 
 Monthly net benefit = measured review-time savings + evidenced error/revisit savings − recurring product cost. Avoid double counting saved work. Payback = initial pilot investment / positive monthly net benefit. If net benefit is zero or negative, no positive payback is established. Do not monetise prevented crashes without defensible evidence.
 
+## Second-pass shortlist: all team ideas and supplied screenshots
+
+Bexruz requested a fresh comparison across all researched ideas, not just the screenshots. He confirmed that **physical parts, paired car captures, and usable traffic code/videos are not currently available to his team**. Therefore no candidate below is approved for implementation or guaranteed ready to demonstrate. Product merit and present build readiness must be distinguished.
+
+Reviewed the full team landscape, TrueClaim, RoadProof, dealer/service research and all eleven screenshot concepts. The strongest narrowed candidates are:
+
+| Candidate | Concrete decision and proposed buyer | Why shortlist it | Required evidence / main risk |
+|---|---|---|---|
+| **Service Handover Guard** (Workshop Intake + Handover Diff + LensCheck) | Proposed Royal Motors service reception: document arrival, compare departure and request review of possible changes | Guided capture, matching, quality/coverage gates and evidence comparison serve one process | Access to a car and genuinely matched views; reflections/angle changes cause false alarms; cannot assign blame |
+| **Warranty Evidence Review** (narrowed WarrantyProof / TrueClaim) | Proposed Royal Motors warranty desk: find reused submitted images, conflicting identifiers and missing views; request evidence or manual review | Historical-image retrieval + OCR/record consistency + completeness creates an inspectable review system | Authorised seeded image history and supported part records; a repeated image can be legitimate; no reliable universal real/fake verdict |
+| **Parts Verification** (PartsLens refinement) | Proposed Royal Motors parts counter: compare picked item with requested catalogue entry | Bounded task, strong fresh-photo test and observable wrong-item errors | Real items/reference records are currently absent; appearance cannot establish fitment or authenticity |
+| **Service Video Evidence Auditor** (narrowed MPI Video Auditor) | Proposed Royal Motors aftersales supervisor: check whether the named component and required evidence views appear before sending a recommendation | Links recommendation to timestamped visual evidence, rather than just summarising a video | Own supported technician clips and labels; start with evidence coverage, not mechanical diagnosis or guessed depth |
+| **Crossing Conflict Review** (Junction Risk Map + Pedestrian Risk Analyzer) | Startup for traffic consultants: find candidate interactions in fixed-camera clips and prepare exposure-aware reports | Tracking, zone timing, event uncertainty and review form the strongest road-safety technical case | Existing pipeline/compliant footage not available yet; calibrated geometry and independent event labels needed |
+| **Road Repair Evidence** (RoadProof refinement) | Startup for road-maintenance contractors: create defect ticket, then check whether a matched follow-up view adequately documents the same spot | A closed ticket-and-follow-up workflow is stronger than a generic pothole map | Genuine paired sites are absent; photos show surface appearance, not structural quality or repair durability |
+
+### Additional primary-source checks
+
+- [Dealerware's July 2026 support article](https://support.dealerware.com/hc/en-us/articles/53458053275283-Vehicle-Walkaround-Inspection) documents guided zone photos, comparison and reports; it explicitly says automatic AI damage detection is not in that initial release. This establishes a workflow and one supplier's stated scope, not a globally unoccupied market.
+- [Truepic's warranty article](https://www.truepic.com/blog/snapshot-impact-of-image-authenticity-for-the-auto-warranty-industry) describes reused images/objects and recapture as evidence issues. Its savings/fraud figures are vendor claims and are not used to predict our results. Image similarity finds a review lead, not proof of fraud or repeated physical-object identity.
+- [myKaarma's August 2026 MPI article](https://mykaarma.com/blog/the-multi-point-inspection-process-step-by-step/) describes linking recommendations to visual evidence and AI review of clarity/completeness. A generic video grader therefore has direct prior art. Our proposed narrower experiment links a supported recommendation to specific component views and timestamped evidence gaps.
+- [Partium](https://docs.partium.io/partium-find/partium-search-engine/how-partium-image-part-search-works/), [VivaCity](https://info.vivacitylabs.com/near-miss-feature-smart-road-safety) and [Blyncsy](https://blyncsy.com/pavement-inspection-asset-inventory/) remain relevant competitors for parts search, conflicts and road assets. No claim of global novelty is supported.
+
+### What no ready inputs changes
+
+Previously Parts Verification was recommended **if physical parts were available**. That condition is not met. It remains a strong bounded product but should not be selected today on assumed access.
+
+Service Handover Guard is my strongest dealer-service concept **if access to a car and matched captures can be secured**. Warranty Evidence Review is worth the first data-access check when hardware is unavailable: its duplicate/consistency stages can be explored using authorised images and explicitly seeded records. Such experiments are not evidence of actual fraud detection or local warranty savings. Crossing Conflict Review remains the strongest road-safety technical option only if suitable clips and a working baseline can be obtained.
+
+The [Humans in the Loop original dataset page](https://humansintheloop.org/resources/datasets/car-parts-and-car-damages-dataset/) now appears in primary-source search with explicit **CC0 1.0** terms. It lists exterior car-panel parts and damage annotations. This may support initial localisation experiments after access/content checks; it is **not** a spare-parts identity catalogue, a matched before/after set or warranty history. Access is through a form and has not been requested. Image contents still need challenge-specific privacy review. Previously inaccessible licence information is now partially resolved; no dataset has been downloaded.
+
+The original [RoadDamageDetector README](https://github.com/sekilab/RoadDamageDetector/blob/master/README.md?plain=1) distinguishes MIT code from CC BY-SA image terms and describes privacy processing. Those statements should not be blanket-applied to every RDD2022 release or external pretrained weight file; verify the exact asset used. Missing weight licences are unresolved, not automatically inherited from a library.
+
+### Feasibility gates before a build choice
+
+1. Obtain and inspect authorised, relevant inputs; record provenance/licences/consent and avoid forbidden faces/plates. Do not assume a public photo or later blur proves permission.
+2. Define one supported decision and failure/uncertainty outputs. Test on new captures or independently labelled held-out inputs.
+3. Compare against a simple baseline: manual side-by-side review, exact duplicate hash, identifier-only matching or existing detector. The more elaborate pipeline must show why it helps.
+4. Measure error rate, review/retake workload and speed on actual hardware. Deploy the upload/result flow early; do not invent thresholds, FPS, savings or completed integration.
+5. Select after the evidence check. Local data and workflow integration are potential future advantages; they are not existing moats.
+
+Lower-priority choices for this deadline: generic car inspection, generic driver coaching/fatigue, lot counting, uncalibrated tyre/chain-depth measurement, repaint/history inference, live motorcycle blind-spot protection, generic visibility scoring, charger OCR without real screens, and work-zone auditing without real scenes. These may be useful products, but currently lack a clear combination of distinguishable technology and accessible validation inputs. Camera-visible hand/tool motion alone does not establish that a bolt was tightened to the correct torque; EV shape/occupied bay alone does not establish a charging session; absence of metadata alone does not establish manipulation.
+
 ## Comments
 
 <!-- other agents may append comments here -->
