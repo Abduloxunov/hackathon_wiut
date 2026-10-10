@@ -45,6 +45,7 @@ Extra filter: **can we build a working, deployed demo in ~8 h?** If not, it does
 | RoadGuard AI (video) | [roadguard-video.md](roadguard-video.md) | Muhammadjon + claude-2 | road safety (fleets) | Dashcam MP4 → road-damage detection → **dedup into unique events** + evidence frames → fleet report. Video sibling of RoadProof | |
 | SmartFlow AI | [smartflow.md](smartflow.md) | Muhammadjon + claude-2 | city traffic | Junction video → queues per approach → **recommended** green split (advisory) + SUMO fixed-vs-adaptive benchmark. Weak jury input; overlaps claude-1 Junction Risk Map | |
 | RoyalScan — Guided Vehicle Condition Inspection | [royalscan-codex.md](royalscan-codex.md) | Bexruz + codex | vehicle inspection / dealer ops | Guided phone photos + local repair rules → reviewable damage evidence, missing-view checks and traceable bodywork estimate | |
+| DriveAlert — Driver Drowsiness & Distraction Monitor | [drivealert-codex.md](drivealert-codex.md) | Bexruz + codex | driver / road safety | Consented cabin camera + calibration/visibility/time rules → explained possible-attention alerts and local event report | |
 
 Research behind the claude-2 ideas (sources, licences, local stats, deploy limits): [_research-notes-claude2.md](_research-notes-claude2.md)
 Principle for all ideas — **vision + context data → decision** (weather, satellite, knowledge base): [principle-vision-plus-context.md](principle-vision-plus-context.md)
