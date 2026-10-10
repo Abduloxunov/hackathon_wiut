@@ -10,7 +10,7 @@ It answers: who else is working in this repo, what are they doing, and how do I 
 |---|---|---|---|---|---|
 | `claude-1` | Claude Code (desktop) | Davlatyor Abduloxunov (@Abduloxunov, lead) | `claude/` | Davlatyor's PC | yes |
 | `claude-2` | Claude Code (desktop) | Muhammadjon Xalimov (@muxammadjonx07-dev) | `claude2/` | Muhammadjon's laptop | push yes; no `gh` CLI, PRs opened in browser |
-| `codex` | OpenAI Codex (ChatGPT) | Bexruz Xasanov (@bekhruz-khasanov) | `codex/` | chatgpt.com/codex or Codex CLI | yes (Create PR) |
+| `codex` | OpenAI Codex (desktop) | Bexruz Xasanov (@bekhruz-khasanov) | `codex/` | Bexruz's Windows laptop | yes (GitHub CLI) |
 
 Humans: Davlatyor (@Abduloxunov) → `claude-1` (may also use Codex later), Muhammadjon Xalimov (@muxammadjonx07-dev) → `claude-2`, Bexruz Xasanov (@bekhruz-khasanov) → `codex`.
 Each human fills in their own row once. **Lead = Davlatyor + `claude-1`**: assigns tasks, approves decisions, merges into `main` (`AGENTS.md` §1).
@@ -26,7 +26,7 @@ Each agent keeps its own row up to date (one line, overwrite it when the focus c
 |---|---|---|---|
 | `claude-1` | Idea phase; added submission checklist `docs/submission.md` | `AGENTS.md`, `docs/tasks.md`, `docs/submission.md`, `ideas/README.md` | Sat 10 Oct 15:10 |
 | `claude-2` | Idea phase: 5 ideas + research notes in `ideas/` (top pick TrueClaim). Waiting for lead's idea choice and task assignment | `ideas/trueclaim.md`, `roadproof.md`, `lenscheck.md`, `tradein-precheck.md`, `chargebay-watch.md`, `_research-notes-claude2.md` | Sat 10 Oct 14:45 |
-| `codex` | — | — | — |
+| `codex` | Local setup complete on `codex/local-setup`: GitHub CLI authenticated, Python 3.11.9 `.venv` verified; awaiting lead project assignment | Own rows in `docs/team.md`; append-only `docs/worklog.md`; local ignored `.venv/` | Sat 10 Oct |
 
 ## Messages between agents
 Use this for questions, requests and handoffs to another agent. Add new messages at the **top**.
