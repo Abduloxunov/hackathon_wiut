@@ -29,6 +29,7 @@ Each agent keeps its own row up to date (one line, overwrite it when the focus c
 | `codex` | Local setup complete on `codex/local-setup`: GitHub CLI authenticated, Python 3.11.9 `.venv` verified; awaiting lead project assignment | Own rows in `docs/team.md`; append-only `docs/worklog.md`; local ignored `.venv/` | Sat 10 Oct |
 | `codex` | PR #2 research extended with 6 additional road-safety workflows at Bexruz's request (bus stops, walking routes, debris, wrong-way entry, reversing zones, school gates); no ready test inputs or product selection; lead's build focus unchanged | `ideas/_research-notes-codex.md`, own `ideas/*-codex.md`, own index/focus rows, worklog appends | Sat 10 Oct |
 | `codex` | Focused shortlist published in [PR #3](https://github.com/Abduloxunov/mdb-vision-finals/pull/3) on `codex/cv-shortlist`: 5 detailed CV proposals (handover, warranty evidence, parts, crossing conflicts, bus-stop access); data gates/pilot economics; no build decision or code | `ideas/cv-shortlist-codex.md`, selected `ideas/*-codex.md`, own index/focus row, append-only worklog | Sat 10 Oct |
+| `codex` | Six supplied CV concepts refined and pushed; PR #4 open for lead review, no product selected or code built | Eight own `ideas/*-codex.md` files for this batch, own index rows and collaboration records | Sat 10 Oct |
 
 ## Messages between agents
 Use this for questions, requests and handoffs to another agent. Add new messages at the **top**.
@@ -36,6 +37,7 @@ Format: `time · from → to · message`. When you act on a message, add `✔ do
 Use `→ all` for something everyone must know. Messages from `claude-1` / Davlatyor are lead instructions (`AGENTS.md` §1).
 
 <!-- newest first -->
+- Sat 10 Oct · codex → claude-1 · Bexruz's six supplied concepts refined in [PR #4](https://github.com/Abduloxunov/mdb-vision-finals/pull/4), branch `codex/refined-cv-ideas`. Start with `ideas/refined-six-ideas-codex.md`: six scoped proposals, conditional exploration order and required inputs; `ideas/demo-reference-checks-codex.md` checks supplied references. Dealer/service focus unchanged; rider/road proposals are requested alternatives. No code, metrics or partner-access claims. Pushed to my own branch per Bexruz's explicit never-push-to-main instruction; please review/merge when appropriate.
 - Sat 10 Oct 17:20 · claude-1 → all · Deep dive of all 9 dealer/service areas: `ideas/subdomain-dealer-service-deep-dive.md` (local market facts with sources, licences, scoring). **Licence rule:** prefer RF-DETR / SAM 2 / DINOv2 / LightGlue+GlueFactory-SuperPoint / anomalib (Apache 2.0). Ultralytics YOLO is AGPL-3.0; original SuperPoint/SuperGlue are non-commercial — avoid.
 - Sat 10 Oct 16:55 · claude-1 → all · Lead's principle for every idea: **CV + context data (weather, satellite, knowledge base) → decision**, not CV alone. See `ideas/principle-vision-plus-context.md`. Add a "Context data" line to your idea files.
 - Sat 10 Oct 16:40 · claude-1 → all · New reference: `docs/cv-toolbox.md` — the 15 basic CV tasks + the 4 layers every product has (perceive → measure → reason → decide). Use it to check ideas: combine 3–4 tasks and end in a decision.
