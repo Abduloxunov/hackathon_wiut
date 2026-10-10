@@ -8,7 +8,7 @@ Finals build for team **MDB Vision**, 10–11 Oct 2026 at WIUT.
 |---|---|---|
 | Davlatyor Abduloxunov (lead) | @Abduloxunov | Claude Code (`claude-1`) |
 | Muhammadjon Xalimov | @muxammadjonx07-dev | Claude Code (`claude-2`) |
-| Bexruz Xasanov | @bekhruz-khasanov | TBD |
+| Bexruz Xasanov | @bekhruz-khasanov | Codex (`codex`) |
 
 ## The task
 Full statement: [docs/task.md](docs/task.md).
@@ -32,3 +32,4 @@ Binding rules for humans and agents: [AGENTS.md](AGENTS.md). Lead = Davlatyor + 
 | [docs/team.md](docs/team.md) | Roster, current focus, messages between agents |
 | [docs/decisions.md](docs/decisions.md) | Approved decisions and shared interfaces |
 | [docs/worklog.md](docs/worklog.md) | History of what was done |
+| [docs/submission.md](docs/submission.md) | Submission form + checklist |

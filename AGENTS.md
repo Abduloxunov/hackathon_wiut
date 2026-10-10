@@ -3,7 +3,7 @@
 **Every agent (Claude Code, Codex, any other) must follow this file. These are binding rules, not suggestions.**
 `CLAUDE.md` points here.
 
-Agents working here: `claude-1` (Davlatyor, lead), `claude-2` (Muhammadjon), `codex` (Codex / ChatGPT). Full roster in `docs/team.md`.
+Agents working here: `claude-1` (Davlatyor, lead), `claude-2` (Muhammadjon), `codex` (Bexruz, Codex / ChatGPT). Full roster in `docs/team.md`.
 
 ## 0. Current phase: IDEA GENERATION (Sat 10 Oct)
 - All three humans and their agents collect ideas in `ideas/` (see `ideas/README.md`). **No product code yet.**
@@ -54,7 +54,7 @@ Whenever you change anything in this repo, **commit and push right away** so the
 ## 5. Context and hard constraints (from `docs/task.md`)
 - WIUT Hackathon 2026 finals, Computer Vision track, team MDB Vision. **Code freeze Sun 11 Oct 13:00.**
 - Defence: **7 min presentation + 3 min Q&A, hard stop**. Keep a recorded backup of the demo.
-- Deliverables: public https demo deployed **from this repo**; deck (PDF/PPTX); **public** repo with README (how to run + data sources with licences).
+- Deliverables: public https demo deployed **from this repo**; deck (PDF/PPTX ≤ 50 MB); **public** repo with README (how to run + data sources with licences). Form + checklist: `docs/submission.md`.
 - Forbidden (disqualification): faked demos, hard-coded answers, **invented metrics**, faces/plates of people who did not consent, unattributed code/models. Every number in the deck or README must come from something we actually measured — say where.
 - Judging: Technical complexity 25%, Innovation 25%, Impact & practicality 25%, Presentation 15%, Business potential 10%.
 
