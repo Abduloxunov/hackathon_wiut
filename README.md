@@ -20,6 +20,7 @@ Full statement: [docs/task.md](docs/task.md).
 | `notebooks/` | Experiments |
 | `data/` | Small samples only — big datasets/weights stay out of git (see `.gitignore`) |
 | `pitch/` | Deck, demo video, screenshots |
+| `ideas/` | Idea collection (current phase) — one file per idea |
 | `docs/` | Task statement, decisions, worklog |
 
 ## How we work (several AI agents, one repo)
