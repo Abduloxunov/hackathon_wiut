@@ -29,7 +29,7 @@ All vehicle-inspection ideas from Davlatyor, Muhammadjon and Bexruz, in plain wo
 - Real Tashkent repair prices — we need a price list (call 2–3 body shops, or say clearly it is a sample).
 - 3D from a phone is research-level → only a stretch goal.
 
-**Proposed by:** Davlatyor (liked Tractable), claude-1 (methods: parts + damage masks).
+**Proposed by:** Davlatyor (liked Tractable), claude-1 (methods: parts + damage masks), **Bexruz/codex: RoyalScan + Vehicle Damage Evidence & Estimate Review** (his #1 pick — guided photos, only uses an approved price list, appraiser confirms).
 **Real product:** Tractable — photos → repair estimate in minutes (company claim).
 
 ---

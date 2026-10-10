@@ -115,9 +115,14 @@ Helmet/phone video → how far the rider leans in each corner → coaching.
 | Crosswalk Visibility Audit | Photos of a crossing → faded paint, hidden sign | Narrow; existing products (Blyncsy) |
 | Work-Zone Audit | Roadworks photos → missing cones/signs | Needs real roadworks to test |
 | Road Debris / Blocked Sidewalk | Video → objects on the road or sidewalk | Hard to test safely |
+| Wrong-Way Entry Review | Fixed camera → car driving the wrong way into a one-way area → review clip | Easy to copy (standard camera analytics) |
+| Reversing-Zone Conflict | Dealer/fleet yard → person inside the zone while a car reverses → clip | Needs staged scenes; good dealer-yard angle |
+| School-Gate Drop-Off Review | Camera at a school gate → cars double-parking / blocking access | Children in video → privacy-sensitive |
 | Traffic sign reading | Camera reads speed signs | Every new car already does it |
 
 (All weaker ideas from Bexruz/codex except the last.)
+
+**Also from Bexruz (merged 10 Oct evening):** **DriveAlert** (= Driver Fatigue Guard, plus it says *"monitoring unavailable"* when the camera can't see), **Road Hazard Tickets** (= RoadProof/RoadGuard), **Rider Gear Review** (helmet visible? for riding instructors).
 
 ---
 

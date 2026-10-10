@@ -93,6 +93,10 @@ Photograph a spare part → the app shows the 3 most similar parts from the cata
 **Problem:** for the demo we need real spare parts on the table.
 **Proposed by:** Muhammadjon/claude-2, Bexruz/codex.
 
+### 7b. From Bexruz (merged 10 Oct evening)
+- **PDI Evidence Checklist:** photos of a new car vs its delivery checklist → what to fix before handing it to the customer.
+- **Parts Order Verification:** the picked part vs the ordered part → "wrong part!" before it goes to the mechanic (refines PartsLens).
+
 ### 8. LensCheck — "Are these photos good enough?"
 Checks that inspection photos are sharp, not dark, and cover all sides → *"retake photo 3 and 5"*.
 Too simple alone, but it is **step 1 of ideas 1–4 and 6**. Our safe backup plan.

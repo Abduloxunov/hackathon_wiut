@@ -16,6 +16,9 @@ Codex (cloud) cannot push to `main`: open a PR titled `idea: <name>` — the lea
 Weights from `docs/task.md`: Technical 25 · Innovation 25 · Impact 25 · Presentation/demo 15 · Business 10.
 Extra filter: **can we build a working, deployed demo in ~8 h?** If not, it does not make the shortlist.
 
+**Coverage (10 Oct evening, after merging Bexruz's PRs #1–5):** every idea in this folder appears in one of the four simple summaries:
+[Dealer & service](DEALER-SERVICE-ALL-IDEAS.md) · [Vehicle inspection](VEHICLE-INSPECTION-ALL-IDEAS.md) · [Road safety](ROAD-SAFETY-ALL-IDEAS.md) · [EV & other](EV-AND-OTHER-ALL-IDEAS.md).
+
 **Start here for the focus subdomain:** [DEALER-SERVICE-ALL-IDEAS.md](DEALER-SERVICE-ALL-IDEAS.md) — every dealer/service idea from all three agents, merged and credited.
 
 ## Lead likes (noted, NOT selected)
