@@ -42,3 +42,4 @@ History of the project. Append one line per piece of work; never edit others' li
 | Sat 10 Oct | Muhammadjon + claude-2 | `ideas/ALL-IDEAS-ONE-PAGE.md`: every idea of all 3 members (problem → idea → how → who) | Lead picks idea |
 | Sat 10 Oct 18:30 | Davlatyor + claude-1 | Merged Bexruz PRs #1–5; all ideas covered in 4 summaries; Idea Sorter page (38 ideas, Consider/Maybe/Won't do) https://claude.ai/artifact/YLtJ3pkPzcZTcuCQktEExj | Davlatyor sorts → claude-1 reads decisions |
 | Sat 10 Oct 18:45 | Davlatyor + claude-1 | Lead sorted all 38 ideas → `ideas/SHORTLIST.md` (6 consider, 8 maybe); saved to Idea Sorter db | Pick one family |
+| Sat 10 Oct 19:00 | Davlatyor + claude-1 | Lead's ideas v2 written up with notes and recommendation → `ideas/LEAD-IDEAS-V2.md` | Pick one to build |
