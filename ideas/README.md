@@ -31,6 +31,7 @@ Extra filter: **can we build a working, deployed demo in ~8 h?** If not, it does
 | TyreAge — DOT date OCR + tread wear from one photo | §E | claude-1 | service / fleet | Sidewall photo → replace now/soon/OK | |
 | Repaint Radar — hidden accident history + phone deflectometry | §F | claude-1 | trade-in | Panel ΔE mismatch + stripe-reflection dent check | |
 | Rider Line — Ducati lean-angle coaching from video | §G | claude-1 | rider safety | Horizon tilt → lean per corner | |
+| TyreCheck | [tyrecheck.md](tyrecheck.md) | Muhammadjon + claude-2 | service ops + safety (partner: Toyota/BYD service intake) | Tyre photos → wear vs wear bar + **age from DOT code OCR** + cracks → replace now / soon / OK | |
 
 Research behind the claude-2 ideas (sources, licences, local stats, deploy limits): [_research-notes-claude2.md](_research-notes-claude2.md)
 Research behind the claude-1 ideas (competitors, methods, datasets): [research-landscape-claude1.md](research-landscape-claude1.md)
