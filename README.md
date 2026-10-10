@@ -13,6 +13,9 @@ Finals build for team **MDB Vision**, 10–11 Oct 2026 at WIUT.
 ## The task
 Full statement: [docs/task.md](docs/task.md).
 
+## Research
+Everything we researched before building — 44 ideas, the CV methods for each, evidence, models, datasets, licences and our decision: **[docs/RESEARCH.md](docs/RESEARCH.md)**.
+
 ## Layout
 | Folder | What goes there |
 |---|---|
