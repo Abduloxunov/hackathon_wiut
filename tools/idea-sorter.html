@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MDB Vision Idea Sorter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: a sorting desk — sticky tally bar on top, filter row, then idea cards grouped by subdomain; each card ends in three verdict buttons. */
+:root{
+  --bg:#f3f4f6; --surface:#ffffff; --ink:#17191c; --muted:#5d636b; --line:#dcdfe3; --chip:#eceef1; --accent:#2856c9;
+  --yes:#1f7a45; --yes-bg:#e3f3e9; --maybe:#9a6200; --maybe-bg:#fbf0d9; --no:#8a3a3a; --no-bg:#f6e4e4;
+  --display:"Schibsted Grotesk",system-ui,sans-serif; --body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#111316; --surface:#1a1d21; --ink:#e9eaec; --muted:#9ba1a8; --line:#2c3036; --chip:#252a30; --accent:#7ea2ff;
+  --yes:#6fd39a; --yes-bg:#173525; --maybe:#f0b54a; --maybe-bg:#3a2d12; --no:#f09a9a; --no-bg:#3a1e1e; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111316; --surface:#1a1d21; --ink:#e9eaec; --muted:#9ba1a8; --line:#2c3036; --chip:#252a30; --accent:#7ea2ff;
+  --yes:#6fd39a; --yes-bg:#173525; --maybe:#f0b54a; --maybe-bg:#3a2d12; --no:#f09a9a; --no-bg:#3a1e1e; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.5 var(--body);margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:24px 64px}
+h1{font:800 clamp(28px,5vw,40px)/1.05 var(--display);margin:0;letter-spacing:-.01em}
+.lede{color:var(--muted);margin:8px 0 0;max-width:68ch}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:12px;margin-top:16px;border-bottom:1px solid var(--line)}
+.tally{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.t{font:600 14px/1 var(--body);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);cursor:pointer;color:var(--ink);display:inline-flex;gap:6px;align-items:center}
+.t b{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.t[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.t.yes b{color:var(--yes)} .t.maybe b{color:var(--maybe)} .t.no b{color:var(--no)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
+.f{font:500 13px/1 var(--body);padding:7px 11px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+.f[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+#q{font:15px var(--body);padding:8px 12px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);min-width:0;flex:1 1 180px;max-width:280px}
+.save{font-size:13px;color:var(--muted);margin-left:auto}
+button:focus-visible,textarea:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+section{margin-top:28px}
+h2{font:700 22px/1.2 var(--display);margin:0 0 4px}
+.sub{color:var(--muted);margin:0 0 14px;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:9px;min-width:0}
+.card[data-s="yes"]{border-left-color:var(--yes)} .card[data-s="maybe"]{border-left-color:var(--maybe)} .card[data-s="no"]{border-left-color:var(--no);opacity:.72}
+.top{display:flex;gap:8px;align-items:flex-start;justify-content:space-between}
+h3{font:700 19px/1.2 var(--display);margin:0}
+.pick{font:600 11px/1 var(--mono);color:var(--accent);border:1px solid var(--accent);border-radius:4px;padding:4px 6px;white-space:nowrap}
+.badges{display:flex;flex-wrap:wrap;gap:6px}
+.bd{font:500 12px/1 var(--body);background:var(--chip);border-radius:999px;padding:5px 9px;color:var(--muted)}
+.story{margin:0;font-style:italic;color:var(--ink)}
+dl{margin:0;display:grid;grid-template-columns:62px 1fr;gap:4px 10px;font-size:15px}
+dt{font:600 11px/1.9 var(--mono);text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+dd{margin:0;min-width:0}
+.view{font-size:14px;background:var(--chip);border-radius:8px;padding:8px 10px;margin:0}
+.view span{font:600 11px/1 var(--mono);text-transform:uppercase;letter-spacing:.04em;color:var(--accent);margin-right:6px}
+.verdict{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:2px}
+.v{font:600 14px/1 var(--body);padding:10px 6px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.v.yes[aria-pressed="true"]{background:var(--yes-bg);border-color:var(--yes);color:var(--yes)}
+.v.maybe[aria-pressed="true"]{background:var(--maybe-bg);border-color:var(--maybe);color:var(--maybe)}
+.v.no[aria-pressed="true"]{background:var(--no-bg);border-color:var(--no);color:var(--no)}
+textarea{font:14px/1.4 var(--body);width:100%;min-height:38px;resize:vertical;border:1px solid var(--line);border-radius:8px;padding:7px 9px;background:transparent;color:var(--ink)}
+.empty{color:var(--muted);font-style:italic}
+footer{margin-top:40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:14px}
+@media (max-width:420px){.grid{grid-template-columns:1fr}.save{margin-left:0;width:100%}}
+</style>
+
+<div class="wrap">
+  <h1>Idea Sorter</h1>
+  <p class="lede">Every idea from Davlatyor, Muhammadjon and Bexruz, explained in plain words. Mark each one <b>Consider</b>, <b>Maybe</b> or <b>Won't do</b>, and add a note. Your choices are saved, so claude-1 can read them and plan the build.</p>
+
+  <div class="bar">
+    <div class="tally" id="tally"></div>
+    <div class="filters" id="filters">
+      <input id="q" type="search" placeholder="Search ideas" aria-label="Search ideas">
+      <span class="save" id="save" aria-live="polite"></span>
+    </div>
+  </div>
+
+  <div id="list"></div>
+
+  <footer>Jury test: ✅ the jury can test it with their own phone · ⚠️ only by uploading a video or with props · ❌ needs a fixed camera we don't have. "Hard to copy" and "claude-1's view" are claude-1's judgement, not measured facts. Compiled 10 Oct 2026 from the team's <code>ideas/</code> folder.</footer>
+</div>
+
+<script>
+const AREAS = {
+  dealer:  {name:"Dealer & service", sub:"Inside Toyota / BYD / Ducati dealerships: check-in, warranty, repairs, parts, tyres."},
+  inspect: {name:"Vehicle inspection", sub:"Looking at a car to find damage: claims, trade-in, used cars. Most crowded area."},
+  road:    {name:"Driver & road safety", sub:"The driver, the road surface, junctions, the city. Our elimination code helps here."},
+  ev:      {name:"EV, infrastructure & other", sub:"Chargers, fleets, motorcycles, parking."}
+};
+const IDEAS = [
+ {id:"handover",a:"dealer",n:"Handover Guard",pick:1,j:"✅",c:"medium–high",
+  s:"Aziz picks up his BYD from service, sees a scratch: “You did this!” Nobody can prove anything.",
+  app:"Worker takes 8 photos at drop-off and 8 at pick-up → app compares each pair → shows only NEW damage.",
+  demo:"Photograph a car, stick tape on it, photograph again → only the tape is flagged.",pay:"Dealer service department",by:"claude-1 (Handover Diff), Bexruz (Service Handover Guard)",
+  v:"Same engine as Warranty Check. Shiny paint and light changes cause false alarms."},
+ {id:"warranty",a:"dealer",n:"Warranty Check",pick:1,j:"✅",c:"high",
+  s:"A dealer asks Toyota/BYD to pay for a part under warranty and re-sends an old photo, or a photo of the wrong part.",
+  app:"Upload claim photos → was it used before? photo of a screen? do part number, VIN and km match? → OK / more photos / send to a person.",
+  demo:"Upload a photo, then a cropped copy → “already used in claim #12”. Photo of a laptop screen → caught.",pay:"Importer warranty department (Toyota Central Asia, BYD Royal Motors)",by:"all three agents",
+  v:"Uses rare tasks (embeddings, forensics, OCR). No real claims → we build our own test set."},
+ {id:"repair",a:"dealer",n:"Repair Check",j:"✅",c:"medium",
+  s:"The customer paid to fix a dent. Was it really fixed?",
+  app:"Photo before + photo after the repair → app checks the requested spot changed → manager closes the job.",
+  demo:"Before/after photo pair of a panel.",pay:"BYD Royal Motors service quality team",by:"Bexruz (Repair Evidence Review)",
+  v:"Same engine as Handover Guard, opposite question."},
+ {id:"tyre",a:"dealer",n:"TyreCheck",j:"✅",c:"medium",
+  s:"Tyres older than ~6 years are risky even if they look fine. The age is hidden in a code on the side.",
+  app:"Photo of tread + side → reads the production date, checks wear and cracks → replace now / soon / OK.",
+  demo:"Walk to any car in the parking lot and photograph a tyre.",pay:"Service centre (sells tyres), taxi fleets",by:"Muhammadjon (TyreCheck), claude-1 (TyreAge)",
+  v:"Great demo. The date code is faint black-on-black text — hard to read."},
+ {id:"parts",a:"dealer",n:"PartsLens / Parts Verification",j:"✅",c:"medium",
+  s:"A mechanic brings an old part with no box. Which part is it? Or the warehouse picks the wrong one.",
+  app:"Photo of the part (+ its label) → top-3 catalogue matches + the number read from it → worker confirms.",
+  demo:"Photograph a real spare part on the table.",pay:"Dealer parts department",by:"Muhammadjon (PartsLens), Bexruz (Parts Verification, Parts Order Verification)",
+  v:"Needs real spare parts for the demo."},
+ {id:"pdi",a:"dealer",n:"PDI Checklist",j:"⚠️",c:"low",
+  s:"A new car arrives from the factory. Workers must check it before handing it to the customer.",
+  app:"Photos of the new car vs its delivery checklist → which items need attention.",
+  demo:"Needs a new car.",pay:"Dealer",by:"Bexruz, claude-1",v:"Competes with UVeye camera arches."},
+ {id:"bay",a:"dealer",n:"Service-Bay Tracker (“Just Walk Out” for the workshop)",j:"❌",c:"medium",
+  s:"Repair bays sit empty while customers wait. Nobody knows which bay is idle.",
+  app:"Workshop cameras → which bay is busy or idle, how long each job takes → alerts and timeline.",
+  demo:"Jury can't test it with their phone; we have no workshop video.",pay:"Dealer service director",by:"Muhammadjon, claude-1 (Davlatyor liked Just Walk Out)",
+  v:"Strong idea, weak demo."},
+ {id:"mpi",a:"dealer",n:"Technician Video Check",j:"⚠️",c:"medium",
+  s:"The mechanic sends a video: “your brakes are worn”. Are they really?",
+  app:"App checks the problem is actually visible in the video (pads, tyres, leaks).",
+  demo:"Needs close-up videos of brakes or tyres.",pay:"Dealer / customer trust",by:"claude-1",v:"Measuring brake pads from video is unproven."},
+ {id:"lens",a:"dealer",n:"LensCheck",j:"✅",c:"low",
+  s:"Inspection photos are often blurry, dark, or a side is missing.",
+  app:"Checks every photo is sharp, bright and all sides are covered → “retake photo 3 and 5”.",
+  demo:"Take 5 photos of any car.",pay:"Anyone who inspects cars",by:"Muhammadjon",v:"Too simple alone, but it is step 1 of most ideas. Safe backup."},
+
+ {id:"estimate",a:"inspect",n:"Damage Estimate (Tractable-style)",pick:1,j:"✅",c:"medium",
+  s:"Dilnoza hits a pole. How much will it cost — repair or replace? Three workshops give three prices.",
+  app:"4–8 phone photos → which parts are damaged and how badly → repair or replace × price list → estimate (3D view as extra).",
+  demo:"Photograph any car with a scratch or dent.",pay:"Insurers, body shops, dealers (trade-in)",by:"Davlatyor (liked it), claude-1, Bexruz (RoyalScan, Vehicle Damage Estimate)",
+  v:"Easy to understand but crowded. Strong when combined with TrueClaim checks."},
+ {id:"trueclaim",a:"inspect",n:"TrueClaim (+ weather & satellite check)",pick:1,j:"✅",c:"high",
+  s:"Some drivers send fake accident photos: from the internet, from a screen, reused, or AI-edited.",
+  app:"Photo of a screen? used before? camera info makes sense? damage visible? + did the claimed hail/flood really happen there (weather, satellite)? → accept / retake / fraud team.",
+  demo:"Real car passes; photo of our laptop screen and a cropped copy get caught.",pay:"Insurance companies (OSAGO, KASKO)",by:"Muhammadjon (top pick), claude-1 (ClaimProof), Davlatyor (satellite idea)",
+  v:"None of 17 real products we studied checks if the photo itself is real. Same engine as Warranty Check."},
+ {id:"tradein",a:"inspect",n:"TradeIn PreCheck",j:"✅",c:"medium",
+  s:"Rustam drives to the dealer to trade in his Cobalt and hears “we don't accept this car”.",
+  app:"8 photos from home → damage, km read from dashboard, windshield cracks, dealer rules → “yes, come” / “no, because…”.",
+  demo:"Photograph any car + its dashboard.",pay:"Dealer trade-in department",by:"Muhammadjon",v:"Shares most of the engine with TrueClaim. Trade-in made official in 2025 (PKM-535)."},
+ {id:"repaint",a:"inspect",n:"Repaint Radar",j:"✅",c:"medium",
+  s:"A used car looks perfect, but one door was repainted after a crash.",
+  app:"Compares the colour of neighbouring panels; bent reflections of a stripe pattern reveal hidden dents.",
+  demo:"Needs a car with a known repainted panel.",pay:"Used-car buyers, dealers",by:"claude-1",v:"Creative, but lighting makes it unreliable."},
+ {id:"windshield",a:"inspect",n:"Windshield Check",j:"✅",c:"low",
+  s:"A small chip becomes a big crack — and an expensive new windshield.",
+  app:"Photo of the windshield → chip or crack found → “repair now, cheaply”.",
+  demo:"Photograph any windshield.",pay:"Glass shops, insurers, dealers",by:"Muhammadjon",v:"Small, clear add-on to TradeIn PreCheck."},
+ {id:"scan3d",a:"inspect",n:"3D car scan / plain dent finder",j:"⚠️",c:"low",
+  s:"A full 3D model of the car, or simply “AI finds the dent”.",
+  app:"Phone video → 3D model with damage; or photo → dent boxes.",
+  demo:"Possible but slow / ordinary.",pay:"Insurers",by:"claude-1 research",v:"3D is research-level; the plain dent finder is what every team builds."},
+
+ {id:"roadproof",a:"road",n:"RoadProof (+ repair verification)",pick:1,j:"✅",c:"medium",
+  s:"Tashkent repairs ~816,000 m² of road every spring. People say contractors patch badly and nobody checks.",
+  app:"Photo of a road → potholes and cracks → repair ticket. After repair, same spot again → fixed / partly / not fixed.",
+  demo:"Photograph any crack in the parking lot.",pay:"City road department, contractors",by:"Muhammadjon, Bexruz (Road Hazard Tickets)",
+  v:"Checking the repair is the original part; plain pothole finding is common."},
+ {id:"junction",a:"road",n:"Junction Risk Map",pick:1,j:"⚠️",c:"high",
+  s:"A crossing has many near-crashes every day, but the city learns only after someone dies.",
+  app:"Junction video → follows every car and person (our elimination code) → near-misses → danger map + clips.",
+  demo:"Upload a junction video, or film the street from a window.",pay:"City traffic department, insurers",by:"claude-1, Bexruz (Crossing Conflict Review)",
+  v:"Hardest for others to copy — built on our own elimination work."},
+ {id:"drivecoach",a:"road",n:"DriveCoach",j:"✅",c:"medium",
+  s:"A taxi driver looks at his phone for 2 seconds — fine on an empty road, deadly with a car braking ahead.",
+  app:"Camera on the driver + camera on the road → danger judged together → alarm + trip report.",
+  demo:"A judge looks away or closes their eyes → alarm.",pay:"Taxi and delivery fleets, insurers, driving schools",by:"Davlatyor (brainstorm), claude-1",
+  v:"Best live demo, but many competitors (Nauto, Samsara)."},
+ {id:"roadguard",a:"road",n:"RoadGuard (dashcam video)",j:"⚠️",c:"medium",
+  s:"A delivery company has dashcams in 50 cars. Nobody watches the videos.",
+  app:"Dashcam video → road damage found → the same pothole in 20 frames = 1 event → short report. Confirm with several cars + phone motion sensor.",
+  demo:"Upload a dashcam video.",pay:"Fleets, then the city",by:"Muhammadjon (+ ideas from LinkedIn posts)",v:"Video sibling of RoadProof."},
+ {id:"smartflow",a:"road",n:"SmartFlow AI (traffic lights)",j:"⚠️",c:"low–medium",
+  s:"A green light for an empty road while the queue grows on another.",
+  app:"Junction video → queue on each road → suggested green-light times, tested in a simulator.",
+  demo:"Upload a junction video.",pay:"City traffic centre",by:"Muhammadjon",v:"Mostly simulation, little computer vision; many student projects do this."},
+ {id:"fatigue",a:"road",n:"Driver Fatigue Guard / DriveAlert",j:"✅",c:"low",
+  s:"A tired driver closes his eyes for a second too long.",
+  app:"Camera watches the eyes → alarm. Says “monitoring unavailable” when it can't see (dark, sunglasses).",
+  demo:"Close your eyes in front of the laptop.",pay:"Fleets",by:"Muhammadjon, Bexruz (DriveAlert)",v:"The most common hackathon demo. Better as part of DriveCoach."},
+ {id:"busstop",a:"road",n:"Bus-Stop Access Monitor",j:"❌",c:"low",
+  s:"Cars park in the bus stop, so the bus can't reach the kerb.",
+  app:"Bus-stop camera → car blocking the boarding area → ticket for the operator.",
+  demo:"Needs a bus-stop camera.",pay:"Transport operator",by:"Bexruz",v:"Easy to copy with standard camera software."},
+ {id:"riderline",a:"road",n:"Rider Line (Ducati lean coaching)",j:"⚠️",c:"medium",
+  s:"A rider wants to know how far he leans in each corner.",
+  app:"Riding video → lean angle per corner → coaching.",
+  demo:"Needs a motorcycle and riding video.",pay:"Ducati riders, riding schools",by:"claude-1",v:"Ducati is a partner, but hard to demo."},
+ {id:"ridergear",a:"road",n:"Rider Gear Review",j:"⚠️",c:"low",
+  s:"Riding instructors want to know when students rode without a helmet.",
+  app:"Video of riders (who agreed) → helmet visible or not → list for the instructor.",
+  demo:"Needs rider video.",pay:"Riding schools",by:"Bexruz",v:"Narrow."},
+ {id:"crosswalk",a:"road",n:"Crosswalk Visibility Audit",j:"⚠️",c:"low",
+  s:"Zebra-crossing paint is faded; a sign is hidden by a tree.",
+  app:"Photos of a crossing → faded paint / hidden sign → maintenance ticket.",
+  demo:"Photograph a crossing.",pay:"City maintenance",by:"Bexruz",v:"Existing products (Blyncsy)."},
+ {id:"workzone",a:"road",n:"Work-Zone Audit",j:"⚠️",c:"low",
+  s:"Roadworks without the required cones and signs.",
+  app:"Photos of roadworks → missing cones/signs → correction ticket.",
+  demo:"Needs real roadworks.",pay:"Road contractors",by:"Bexruz",v:"Hard to test."},
+ {id:"debris",a:"road",n:"Road Debris / Blocked Sidewalk",j:"⚠️",c:"low",
+  s:"Objects on the road or cars parked on the sidewalk.",
+  app:"Video → object on the road / sidewalk blocked → ticket.",
+  demo:"Hard to test safely.",pay:"City",by:"Bexruz",v:"Hard to get test data."},
+ {id:"wrongway",a:"road",n:"Wrong-Way Entry Review",j:"❌",c:"low",
+  s:"A car drives the wrong way into a one-way area.",
+  app:"Fixed camera → wrong direction detected → review clip.",
+  demo:"Needs a fixed camera.",pay:"Site operators",by:"Bexruz",v:"Standard camera analytics already do this."},
+ {id:"reversing",a:"road",n:"Reversing-Zone Conflict",j:"⚠️",c:"medium",
+  s:"A worker stands behind a reversing car in a dealer yard.",
+  app:"Yard camera → person inside the danger zone while a car reverses → clip.",
+  demo:"Staged scene with team members.",pay:"Dealer / fleet yard safety",by:"Bexruz",v:"Interesting dealer-yard angle."},
+ {id:"school",a:"road",n:"School-Gate Drop-Off Review",j:"❌",c:"low",
+  s:"Parents double-park at the school gate and block the crossing.",
+  app:"Gate camera → blocking cars → report.",
+  demo:"Needs a school camera.",pay:"School / city",by:"Bexruz",v:"Children in video → privacy-sensitive."},
+ {id:"signs",a:"road",n:"Traffic sign reading",j:"✅",c:"low",
+  s:"The camera reads speed-limit signs.",
+  app:"Camera → sign recognised → shown to the driver.",
+  demo:"Photo of a sign.",pay:"—",by:"LinkedIn posts",v:"Every new car already does it."},
+
+ {id:"chargebay",a:"ev",n:"ChargeBay Watch",j:"❌",c:"low–medium",
+  s:"Jasur's BYD can't charge: a petrol car is parked in the charging spot.",
+  app:"Camera at chargers → free / charging / parked not plugged / blocked → alert + map. No plate reading.",
+  demo:"Weak: photo of a parking area.",pay:"Charging operators, malls, BYD dealers",by:"Muhammadjon, claude-1 (EV Bay Guard), Bexruz",
+  v:"1,399 chargers now, 4,000 planned by end of 2026 — but the jury can't test it."},
+ {id:"charger",a:"ev",n:"Charger Fault Triage",j:"⚠️",c:"low",
+  s:"A charger shows “Error E-07” and the staff don't know what it means.",
+  app:"Photo of the screen and label → reads the code → finds it in the manual → support ticket.",
+  demo:"Needs a real charger screen.",pay:"Charging operators",by:"Bexruz",v:"Needs real screens and manuals."},
+ {id:"underbody",a:"ev",n:"EV battery underbody check",j:"❌",c:"medium",
+  s:"Hitting something under the car can damage the battery pack.",
+  app:"Photo under the BYD at service intake → scratches/dents on the battery recorded.",
+  demo:"Needs a ramp.",pay:"BYD service",by:"claude-1",v:"Photos under a car are hard to take."},
+ {id:"fleet",a:"ev",n:"Daily Fleet Check",j:"✅",c:"medium–high",
+  s:"A taxi park has 100 cars. A car comes back scratched — which driver did it?",
+  app:"Driver takes 8 photos at shift start and end → only new damage + who had the car.",
+  demo:"Same as Handover Guard.",pay:"Taxi / delivery fleets",by:"claude-1",v:"Handover Guard sold to a second customer."},
+ {id:"chain",a:"ev",n:"Ducati Chain Check",j:"⚠️",c:"medium",
+  s:"A worn motorcycle chain can jump and break.",
+  app:"Photo of chain + coin → chain stretch → replace now / soon.",
+  demo:"Needs a motorcycle.",pay:"Ducati service",by:"claude-1",v:"Nobody does it with AI; hard to demo."},
+ {id:"parking",a:"ev",n:"Parking violations",j:"❌",c:"low",
+  s:"Cars parked on sidewalks and in bus lanes.",
+  app:"Camera → illegally parked car → ticket.",
+  demo:"—",pay:"City",by:"team discussion",v:"Needs number plates of people who didn't agree — forbidden by the task."}
+];
+
+const LABEL = {yes:"Consider", maybe:"Maybe", no:"Won't do"};
+let state = {};          // id -> {status, note}
+let db = null, col = null, mode = "local";
+let fStatus = "all", fArea = "all", q = "";
+const LS = "mdb-idea-sorter-v1";
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function loadLocal(){ try{ const v = JSON.parse(localStorage.getItem(LS)||"{}"); if(v && typeof v==="object") state=v; }catch(e){} }
+function saveLocal(){ try{ localStorage.setItem(LS, JSON.stringify(state)); }catch(e){} }
+
+function counts(){
+  const c={all:IDEAS.length,yes:0,maybe:0,no:0,none:0};
+  IDEAS.forEach(i=>{ const s=(state[i.id]||{}).status; if(s&&c[s]!==undefined) c[s]++; else c.none++; });
+  return c;
+}
+function renderTally(){
+  const c=counts();
+  const items=[["all","All"],["yes","Consider"],["maybe","Maybe"],["no","Won't do"],["none","Not sorted"]];
+  $("#tally").innerHTML = items.map(([k,l])=>`<button type="button" class="t ${k}" data-k="${k}" aria-pressed="${fStatus===k}">${l} <b>${c[k]}</b></button>`).join("");
+  $("#tally").querySelectorAll(".t").forEach(b=>b.onclick=()=>{fStatus=b.dataset.k; render();});
+}
+function renderFilters(){
+  const host=$("#filters");
+  host.querySelectorAll(".f").forEach(e=>e.remove());
+  const q0=$("#q");
+  [["all","All areas"],...Object.entries(AREAS).map(([k,v])=>[k,v.name])].forEach(([k,l])=>{
+    const b=document.createElement("button"); b.type="button"; b.className="f"; b.textContent=l;
+    b.setAttribute("aria-pressed", String(fArea===k)); b.onclick=()=>{fArea=k; render();};
+    host.insertBefore(b,q0);
+  });
+}
+function visible(i){
+  const s=(state[i.id]||{}).status||"none";
+  if(fStatus!=="all" && s!==fStatus) return false;
+  if(fArea!=="all" && i.a!==fArea) return false;
+  if(q){ const t=(i.n+" "+i.s+" "+i.app+" "+i.by+" "+i.pay).toLowerCase(); if(!t.includes(q)) return false; }
+  return true;
+}
+function card(i){
+  const st=state[i.id]||{}; const s=st.status||"";
+  return `<article class="card" data-s="${s}" id="c-${i.id}">
+    <div class="top"><h3>${esc(i.n)}</h3>${i.pick?'<span class="pick">claude-1 top</span>':''}</div>
+    <div class="badges"><span class="bd">Jury test ${i.j}</span><span class="bd">Hard to copy: ${esc(i.c)}</span></div>
+    <p class="story">${esc(i.s)}</p>
+    <dl><dt>App</dt><dd>${esc(i.app)}</dd><dt>Demo</dt><dd>${esc(i.demo)}</dd><dt>Pays</dt><dd>${esc(i.pay)}</dd><dt>By</dt><dd>${esc(i.by)}</dd></dl>
+    <p class="view"><span>claude-1's view</span>${esc(i.v)}</p>
+    <div class="verdict" role="group" aria-label="Decision for ${esc(i.n)}">
+      ${["yes","maybe","no"].map(k=>`<button type="button" class="v ${k}" data-id="${i.id}" data-k="${k}" aria-pressed="${s===k}">${LABEL[k]}</button>`).join("")}
+    </div>
+    <textarea id="note-${i.id}" data-id="${i.id}" placeholder="Note (optional)" aria-label="Note for ${esc(i.n)}">${esc(st.note||"")}</textarea>
+  </article>`;
+}
+function render(){
+  renderTally(); renderFilters();
+  let html="";
+  for(const [k,a] of Object.entries(AREAS)){
+    const items=IDEAS.filter(i=>i.a===k && visible(i));
+    if(fArea!=="all" && fArea!==k) continue;
+    html+=`<section><h2>${esc(a.name)}</h2><p class="sub">${esc(a.sub)}</p>`+
+      (items.length?`<div class="grid">${items.map(card).join("")}</div>`:`<p class="empty">No ideas match this filter.</p>`)+`</section>`;
+  }
+  const active=document.activeElement && document.activeElement.id;
+  $("#list").innerHTML=html;
+  $("#list").querySelectorAll(".v").forEach(b=>b.onclick=()=>setStatus(b.dataset.id,b.dataset.k));
+  $("#list").querySelectorAll("textarea").forEach(t=>t.addEventListener("change",()=>setNote(t.dataset.id,t.value)));
+  if(active && active.startsWith("note-")){ const el=document.getElementById(active); if(el) el.focus(); }
+}
+function flash(msg){ $("#save").textContent=msg; }
+async function persist(id){
+  saveLocal();
+  if(!col){ flash(mode==="local"?"Saved in this browser only":""); return; }
+  const st=state[id]||{};
+  try{ await col.doc(id).set({status:st.status||"", note:st.note||"", name:(IDEAS.find(i=>i.id===id)||{}).n||id, updatedAt:new Date().toISOString()}); flash("Saved"); }
+  catch(e){ flash(e && e.code==="invalid_argument" ? "You can view but not save here" : "Could not save — try again"); }
+}
+function setStatus(id,k){
+  const cur=state[id]||{}; const next=cur.status===k?"":k;
+  state[id]={...cur,status:next}; render(); persist(id);
+}
+function setNote(id,v){ const cur=state[id]||{}; if((cur.note||"")===v) return; state[id]={...cur,note:v}; persist(id); }
+
+$("#q").addEventListener("input",e=>{q=e.target.value.trim().toLowerCase(); render();});
+
+loadLocal(); render(); flash("Saved in this browser only");
+
+(async()=>{
+  try{
+    db = window.claude && window.claude.use ? await window.claude.use("db") : null;
+    if(!db) return;
+    col = db.collection("decisions"); mode="db"; flash("Saving for the team");
+    col.onSnapshot(snap=>{
+      snap.docs.forEach(d=>{ const v=d.data()||{}; state[d.id]={status:v.status||"", note:v.note||""}; });
+      saveLocal(); render();
+    },()=>{ col=null; mode="local"; flash("Saved in this browser only"); });
+  }catch(e){ col=null; }
+})();
+</script>
+
+</html>
