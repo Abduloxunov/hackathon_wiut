@@ -31,6 +31,7 @@ Extra filter: **can we build a working, deployed demo in ~8 h?** If not, it does
 | TyreAge — DOT date OCR + tread wear from one photo | §E | claude-1 | service / fleet | Sidewall photo → replace now/soon/OK | |
 | Repaint Radar — hidden accident history + phone deflectometry | §F | claude-1 | trade-in | Panel ΔE mismatch + stripe-reflection dent check | |
 | Rider Line — Ducati lean-angle coaching from video | §G | claude-1 | rider safety | Horizon tilt → lean per corner | |
+| **DriveCoach** — driver + road camera, risk in context (team brainstorm) | [drive-coach.md](drive-coach.md) | Davlatyor + claude-1 | driver / road safety | Eyes off road *while* car ahead is close → alert + trip score; paired devices because browsers can't open 2 cameras | |
 | TyreCheck | [tyrecheck.md](tyrecheck.md) | Muhammadjon + claude-2 | service ops + safety (partner: Toyota/BYD service intake) | Tyre photos → wear vs wear bar + **age from DOT code OCR** + cracks → replace now / soon / OK | |
 | Service-Bay Tracker | [service-bay-tracker.md](service-bay-tracker.md) | Muhammadjon + claude-2 | service ops (partner: Royal Motors aftersales) | Workshop CCTV → bay state timeline + idle alerts. Weak jury-input demo | |
 | PartsLens | [parts-lens.md](parts-lens.md) | Muhammadjon + claude-2 | parts / warehouse (partner) | Photo of a loose part → top-3 OEM numbers via embedding search + size check | |
