@@ -21,3 +21,4 @@ History of the project. Append one line per piece of work; never edit others' li
 | Sat 10 Oct 15:40 | Muhammadjon + claude-2 | RoadGuard idea: implementation notes, risk table, metrics rules, UI disclaimer from the full guide | Lead picks idea |
 | Sat 10 Oct 17:20 | Davlatyor + claude-1 | Deep dive all 9 dealer/service areas (16 searches): UZ market facts, model licences, per-area method/data/demo/risk, scoring → top: Warranty + Check-in/out | Lead picks |
 | Sat 10 Oct 15:50 | Muhammadjon + claude-2 | +idea SmartFlow AI (re-scoped: CV queue estimator first, SUMO offline) | Lead picks idea |
+| Sat 10 Oct 17:40 | Davlatyor + claude-1 | Pulled all work (main + codex PRs #1–3 + claude2/strategy); digest of all dealer/service ideas → `ideas/DEALER-SERVICE-ALL-IDEAS.md` | Lead reads, picks |

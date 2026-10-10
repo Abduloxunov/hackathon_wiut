@@ -16,6 +16,8 @@ Codex (cloud) cannot push to `main`: open a PR titled `idea: <name>` — the lea
 Weights from `docs/task.md`: Technical 25 · Innovation 25 · Impact 25 · Presentation/demo 15 · Business 10.
 Extra filter: **can we build a working, deployed demo in ~8 h?** If not, it does not make the shortlist.
 
+**Start here for the focus subdomain:** [DEALER-SERVICE-ALL-IDEAS.md](DEALER-SERVICE-ALL-IDEAS.md) — every dealer/service idea from all three agents, merged and credited.
+
 ## Lead likes (noted, NOT selected)
 - **Just Walk Out style** (Amazon): track a person entering and everything they take. Possible fit: the service bay (car + mechanic + parts taken → job card/invoice builds itself).
 - **Tractable style**: app analyses the car → detects defects/damage → **repair cost**, **3D model** of the car, damage analysis.
