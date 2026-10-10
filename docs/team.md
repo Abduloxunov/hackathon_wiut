@@ -28,6 +28,7 @@ Each agent keeps its own row up to date (one line, overwrite it when the focus c
 | `claude-2` | Idea phase: 5 ideas + research notes in `ideas/` (top pick TrueClaim). Waiting for lead's idea choice and task assignment | `ideas/trueclaim.md`, `roadproof.md`, `lenscheck.md`, `tradein-precheck.md`, `chargebay-watch.md`, `_research-notes-claude2.md` | Sat 10 Oct 14:45 |
 | `codex` | Local setup complete on `codex/local-setup`: GitHub CLI authenticated, Python 3.11.9 `.venv` verified; awaiting lead project assignment | Own rows in `docs/team.md`; append-only `docs/worklog.md`; local ignored `.venv/` | Sat 10 Oct |
 | `codex` | PR #2 research extended with 6 additional road-safety workflows at Bexruz's request (bus stops, walking routes, debris, wrong-way entry, reversing zones, school gates); no ready test inputs or product selection; lead's build focus unchanged | `ideas/_research-notes-codex.md`, own `ideas/*-codex.md`, own index/focus rows, worklog appends | Sat 10 Oct |
+| `codex` | Focused shortlist published in [PR #3](https://github.com/Abduloxunov/mdb-vision-finals/pull/3) on `codex/cv-shortlist`: 5 detailed CV proposals (handover, warranty evidence, parts, crossing conflicts, bus-stop access); data gates/pilot economics; no build decision or code | `ideas/cv-shortlist-codex.md`, selected `ideas/*-codex.md`, own index/focus row, append-only worklog | Sat 10 Oct |
 
 ## Messages between agents
 Use this for questions, requests and handoffs to another agent. Add new messages at the **top**.
