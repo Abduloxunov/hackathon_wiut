@@ -1,6 +1,6 @@
 # MDB Vision — Research Dossier (WIUT Hackathon 2026 Finals, Computer Vision track)
 
-**What this is:** the evidence of the research our team did before building. In the 12 hours after the task announcement (Sat 10 Oct 12:30 → Sun 11 Oct 01:45) the three of us and our AI agents (Claude Code ×2, OpenAI Codex) researched the problem space, collected **44 product ideas** across all four task directions, mapped each idea to computer-vision methods, checked prior art, models, datasets and licences, gathered local (Uzbekistan) evidence, sorted the ideas, and validated the three finalists.
+**What this is:** the evidence of the research our team did before building. In the 14 hours after the task announcement (Sat 10 Oct 12:30 → Sun 11 Oct 02:30) the three of us and our AI agents (Claude Code ×2, OpenAI Codex) researched the problem space, collected **44 product ideas** across all four task directions, mapped each idea to computer-vision methods, checked prior art, models, datasets and licences, gathered local (Uzbekistan) evidence, sorted the ideas, validated the three finalists against the judging criteria, and chose **CarDoctor — a multimodal (visual + text) RAG system** (§5).
 
 Team: Davlatyor Abduloxunov (lead, developer) · Muhammadjon Xalimov · Bexruz Xasanov.
 Detailed working notes live in [`ideas/`](../ideas) and [`docs/`](.); this file is the summary. **All numbers are from the linked sources; vendor numbers are marked as claims.**
@@ -10,9 +10,10 @@ Detailed working notes live in [`ideas/`](../ideas) and [`docs/`](.); this file 
 ## Contents
 1. [Process](#1-process)
 2. [The CV toolbox we evaluated ideas with](#2-the-cv-toolbox)
+1a. [How we found information](#1a-how-we-found-information)
 3. [All 44 ideas — methods and verdict](#3-all-44-ideas)
 4. [The three finalists — validity checks](#4-the-three-finalists)
-5. [Final decision](#5-final-decision)
+5. [Final decision and decision log](#5-final-decision)
 6. [Methods, models and licences](#6-methods-models-and-licences)
 7. [Datasets and licences](#7-datasets-and-licences)
 8. [Uzbekistan facts](#8-uzbekistan-facts)
@@ -34,9 +35,26 @@ Detailed working notes live in [`ideas/`](../ideas) and [`docs/`](.); this file 
 | 7 | Lead sorted every idea (Consider / Maybe / not) in an interactive sorter | [`tools/idea-sorter.html`](../tools/idea-sorter.html), [`ideas/SHORTLIST.md`](../ideas/SHORTLIST.md) |
 | 8 | New-idea search (YC 2026, 2026 benchmarks, city programs) + GitHub / hackathon-winner check | [`ideas/NEW-IDEAS-claude1.md`](../ideas/NEW-IDEAS-claude1.md), [`ideas/research-winners-github-claude1.md`](../ideas/research-winners-github-claude1.md) |
 | 9 | Validity checks (problem, beneficiaries, evidence, weak points) for the 3 finalists | [`docs/justification.md`](justification.md), [`docs/justification-cardoctor.md`](justification-cardoctor.md), [`docs/justification-roadmap.md`](justification-roadmap.md) |
-| 10 | Decision and build plan | [`ideas/FINAL-PICK.md`](../ideas/FINAL-PICK.md), [`docs/tasks.md`](tasks.md) |
+| 10 | Scored the finalists against the 5 judging criteria; final decision; build plan | [`ideas/FINAL-PICK.md`](../ideas/FINAL-PICK.md), [`docs/tasks.md`](tasks.md), §5 below |
+| 11 | This dossier | `docs/RESEARCH.md` |
 
-About 150 web searches across the three agents; sources are linked in each file.
+About 150 web searches across the three agents (estimate); sources are linked in each file.
+
+## 1a. How we found information
+| Source type | What we looked at | Used for |
+|---|---|---|
+| **Web search** (Claude Code, Codex) | product pages, trade press, news, government sites | landscape, competitors, local facts |
+| **Research papers** | arXiv, IEEE, NHTSA/VTTI reports, Euro NCAP protocols, SWOV, TRID | methods, crash-risk evidence, benchmarks |
+| **GitHub** | open-source repos for car damage, road damage, adaptive signals; licence files | what is already built, model choice, licences |
+| **Hackathon showcases** | Devpost, lablab.ai, ETHGlobal, Google AI competition pages | what other teams build (avoid clichés) |
+| **Startup databases** | Y Combinator 2026 batches, funding news, Dealroom, Uzbek startup directory | new ideas, market gaps |
+| **YouTube product demos** | 17 real CV products (SafelyYou, Amazon Just Walk Out, UVeye, Tractable…) | how real products combine CV tasks |
+| **LinkedIn articles/posts** (shared by the lead) | N-iX CV-in-automotive article, a 100-day AI-in-automotive series | ideas to borrow (crowd confirmation, sensor fusion), claims to avoid |
+| **Uzbek & regional media / official data** | Kun.uz, Daryo, Gazeta, Anhor, UzDaily, stat.uz, president.uz, gov.uz, Times of Central Asia | local problem evidence |
+| **Datasets & model hubs** | Roboflow Universe, Hugging Face, Kaggle, Mendeley, official dataset pages | data availability + licence status |
+| **Team knowledge** | Davlatyor's computer-vision + satellite / agriculture work (insect-trap CV fused with weather and a knowledge base) | the "vision + context → decision" principle |
+
+**Rules we followed while researching:** cite every number with a link; mark vendor/marketing figures as claims; mark unverified items; never invent metrics (task rule); prefer primary sources (laws, papers, official statistics).
 
 ---
 
@@ -87,7 +105,7 @@ By: C1 = Davlatyor + claude-1 · C2 = Muhammadjon + claude-2 · CX = Bexruz + co
 |---|---|---|---|---|---|---|---|
 | 16 | RoadProof / Road Hazard Tickets | Road photo → defects → ticket → **repair verified** by second photo | 2, 3, 10 | GPS, contractor records | ✅ | C2, CX | 🟢 |
 | 17 | Junction Risk Map / Crossing Conflict Review | Junction video → tracks → near-miss (TTC/PET) → danger map | 2, 5, geometry | — | ⚠️ | C1, CX | 🟢 |
-| 18 | **DriveCoach** | Driver camera + road camera + GPS/IMU → risk **in context** | 4, 2, 5, 11 | GPS, accelerometer | ✅ | C1 (lead's brainstorm) | ⭐ |
+| 18 | **DriveCoach** | Driver camera + road camera + GPS/IMU → risk **in context** | 4, 2, 5, 11 | GPS, accelerometer | ✅ | C1 (lead's brainstorm) | 🟢 runner-up (§5) |
 | 19 | RoadGuard (dashcam video) | Dashcam → defects → one event per pothole → report | 2, 5 | GPS, crowd confirmation | ⚠️ | C2 | 🟡 |
 | 20 | SmartFlow AI | Junction video → queues → suggested green split (advisory) | 2, 5 | SUMO simulation | ⚠️ | C2 | 🟢 |
 | 21 | Driver Fatigue Guard / DriveAlert | Eyes, yawns, phone → alarm; "monitoring unavailable" when it can't see | 4 | — | ✅ | C2, CX | 🟡 (merged into 18) |
@@ -115,7 +133,7 @@ By: C1 = Davlatyor + claude-1 · C2 = Muhammadjon + claude-2 · CX = Bexruz + co
 ### 3.5 Later ideas (lead's v2 + new-idea search)
 | # | Idea | What it does | CV tasks | Extra data | Jury | By | Status |
 |---|---|---|---|---|---|---|---|
-| 38 | **CarDoctor** (car damage + symptoms → cause → right workshop) | Photos/video (damage, **exhaust smoke colour**, **leak colour**, **dashboard warning lights**) + driver's words → LLM constrained by knowledge base → urgency, cost range, workshop | 3, 1, 2, 14 | symptom KB, workshop KB, map | ✅ | Lead (v2) | Finalist, not built (§4.2) |
+| 38 | **CarDoctor** (car damage + symptoms → cause → right workshop) | Photos/video (damage, **exhaust smoke colour**, **leak colour**, **dashboard warning lights**) + driver's words → LLM constrained by knowledge base → urgency, cost range, workshop | 3, 1, 2, 14 | symptom KB, workshop KB, map | ✅ | Lead (v2) | ⭐ **FINAL** (§5) |
 | 39 | Road defects map + **contractor rating** + driver warning | Crowd/dashcam defects → map → warn drivers; durability per contractor | 2, 3, 5 | contractor records, Sentinel-2 resurfacing dates (hypothesis) | ✅ / ⚠️ | Lead (v2) | Finalist, not built (§4.3) |
 | 40 | Smoky Car Spotter + emissions map | Visible exhaust smoke + traffic counts → emissions per street; checked vs Sentinel-5P NO₂ | 2, 1 | satellite NO₂ | ⚠️ | C1 | ⚪ (weak track fit) |
 | 41 | Child Left in Car alarm | Child/pet still in locked car → alarm | 2, 4 / motion | — | ✅ (doll) | C1 | ⚪ |
@@ -128,7 +146,7 @@ Lead's sort (Sat 10 Oct, 18:45): 🟢 Consider = #10, #12, #16, #17, #18, #20 ·
 ---
 
 ## 4. The three finalists
-### 4.1 DriveCoach (#18) — **chosen**
+### 4.1 DriveCoach (#18) — runner-up
 | Evidence | Source |
 |---|---|
 | Uzbekistan 2024: 9,364 crashes, 2,203 deaths; **32.5% involved cargo/passenger transport** (Damas = 52.3% of those) | [Kun.uz](https://kun.uz/en/news/2025/02/01/one-third-of-accidents-in-2024-involved-cargo-and-passenger-transport) |
@@ -140,10 +158,10 @@ Lead's sort (Sat 10 Oct, 18:45): 🟢 Consider = #10, #12, #16, #17, #18, #20 ·
 
 **Methods:** MediaPipe Face Landmarker (478 landmarks) → EAR, PERCLOS, MAR, head pose (driver); detector + tracker for the lead vehicle → ground-plane distance → headway / TTC with GPS speed, Kalman smoothing (road); explainable fusion rules (risk in context); "monitoring unavailable" state. Phone browsers cannot open both cameras at once → two paired devices. Details: [`ideas/drive-coach.md`](../ideas/drive-coach.md), [`docs/justification.md`](justification.md).
 
-### 4.2 CarDoctor (#38) — strong, not built (data-heavy)
-Problem evidence: 240k used-car sales in H1 2026; odometer-tampering fines passed (2026); insurance market +37.8% (2025); 2/3 of drivers don't trust repair shops (AAA, US). Weak spot: photo-only estimates are disputed (miss hidden damage; insurers moved to triage). Local gap: Uzbek service apps (AvtoMall, Avten) have no damage AI. → [`docs/justification-cardoctor.md`](justification-cardoctor.md).
+### 4.2 CarDoctor (#38) — **chosen** (as a multimodal RAG — see §5)
+Problem evidence: 240k used-car sales in H1 2026; odometer-tampering fines passed (2026); insurance market +37.8% (2025); 2/3 of drivers don't trust repair shops (AAA, US). Weak spot: photo-only estimates are disputed (miss hidden damage; insurers moved to triage). Local gap: Uzbek service apps (AvtoMall, Avten) have no damage AI. The data problem (no labelled training data) was solved by designing it as **retrieval** over a reference library we build, instead of trained classifiers. → [`docs/justification-cardoctor.md`](justification-cardoctor.md).
 
-### 4.3 Road defects map + contractor rating (#39, with #16) — strong, not built
+### 4.3 Road defects map + contractor rating (#39, with #16) — strong, next module
 Problem evidence (strongest locally): 25% of accidents from poor roads/infrastructure (gov, 2021 data); president's office: "new roads quickly degrade"; 816,023 m² of Tashkent streets listed for repair; Xalq nazorati photo complaints bounce between agencies. Prior art: Waze pothole reports (Selangor: 19k+ fixed); Yandex Navigator has no pothole category; **no contractor-durability product found**. → [`docs/justification-roadmap.md`](justification-roadmap.md).
 
 | | DriveCoach | CarDoctor | Road map |
@@ -157,7 +175,46 @@ Problem evidence (strongest locally): 25% of accidents from poor roads/infrastru
 ---
 
 ## 5. Final decision
-**Build DriveCoach** (Sun 11 Oct, 00:40). Reasons: one developer; runs on pretrained models (no training data needed); strongest live demo; independent evidence that monitoring helps; clear buyer (commercial fleets). CarDoctor and the road map are shown as next modules of a fleet platform. → [`ideas/FINAL-PICK.md`](../ideas/FINAL-PICK.md).
+### Decision: **CarDoctor — multimodal (visual + text) RAG** (Sun 11 Oct, 02:20)
+**Car photos + the driver's words → retrieve matching evidence → LLM explains only from what was retrieved → condition, urgency, cost range, the right workshop.**
+
+Three modes, one engine:
+| Mode | User | Output |
+|---|---|---|
+| Used-car buying check | private buyers, dealer trade-in desks | condition report: visible damage, warning lights, smoke/leak signs, known faults of this model, cost estimates, questions for the seller |
+| Fleet triage | taxi, delivery, truck fleets | stop now / fix this week / can wait → nearest suitable workshop; history per vehicle |
+| Breakdown / accident | any driver | likely causes with evidence, cost range, workshop on a map |
+
+Architecture: photos → image embeddings (CLIP / DINOv2) + zero-shot detection → **vector DB #1: visual symptom library** (warning-light icons, exhaust-smoke colours, leak colours, damage types) · driver's words → multilingual text embeddings → **vector DB #2: repair knowledge** (symptom → cause → urgency → repair type → cost range + known faults of popular Uzbek models) · **LLM answers only from retrieved items, citing them** · workshop knowledge base + map. The vision does the retrieval, and the UI shows the matched symptom and similarity **before** any LLM text.
+
+### Scored against the judging criteria (claude-1's estimate, 0–10)
+| Criterion (weight) | CarDoctor (multimodal RAG) | Road map + contractor rating | DriveCoach |
+|---|---|---|---|
+| Technical complexity (25%) | 8 — retrieval + vector DBs + constrained LLM + routing; retrieval accuracy measurable | 7 — detector + dedup + map + warnings | 7 — face landmarks + headway + fusion |
+| Innovation (25%) | 7 — evidence-backed diagnosis + local knowledge base | 6.5 — maps common; contractor rating original but sample data tonight | 5.5 — common hackathon demo |
+| Impact & practicality (25%) | 7 — drivers, fleets, used-car buyers; workshops pay | 7.5 — strongest local evidence; slow city buyer | 7.5 — strong evidence; fleets |
+| Presentation (15%) | 8 | 8.5 | 9 |
+| Business (10%) | 8 — per-lead fee, fleet subscription, per-report | 6 | 7 |
+| **Weighted** | **≈ 7.5** | ≈ 7.1 | ≈ 7.0 |
+
+Extra reasons: the partners (Toyota / BYD / Ducati) run service centres — CarDoctor sends them customers ("Partner product" fit); clearly "automotive business". Main risk: looking like an "LLM wrapper" → vision must visibly do the retrieval, and we report retrieval accuracy on our own test photos.
+
+### Decision log
+| Time (Oct 10–11) | Step |
+|---|---|
+| Sat 12:30 | Task announced |
+| Sat 14:00–17:30 | Landscape research; focus subdomain = dealer & service; 9-area deep dive |
+| Sat 17:40–18:30 | Digests per subdomain; merged teammates' PRs; Idea Sorter |
+| Sat 18:45 | Lead's shortlist: 6 Consider, 8 Maybe (`ideas/SHORTLIST.md`) |
+| Sat 19:00 | Lead's own direction v2: smart lights, car damage → cost → mechanic, road map + contractor rating, DriveCoach, satellites, assembly check (`ideas/LEAD-IDEAS-V2.md`) |
+| Sat 19:20–19:45 | GitHub / hackathon-winner check; new-idea search (YC 2026, 2026 benchmarks) |
+| Sun 00:40 | First pick: DriveCoach (only developer, no training data needed) |
+| Sun 01:00–01:45 | Validity checks for DriveCoach, CarDoctor, road map (`docs/justification*.md`) |
+| Sun 02:00 | Lead: DriveCoach is too common; prefers LLM + knowledge base or the road map |
+| Sun 02:10 | Redesign: CarDoctor as **retrieval over a reference library** → no training data needed |
+| Sun 02:20 | Scored all three against the criteria → **CarDoctor (multimodal RAG) chosen**; DriveCoach + road map = next modules of a fleet platform |
+
+Team roles from here: Davlatyor + claude-1 = all code; Muhammadjon = reference & test photos, measurements; Bexruz = knowledge base with sources, pitch deck (`docs/tasks.md`).
 
 ---
 
