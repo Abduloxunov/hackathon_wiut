@@ -44,3 +44,11 @@ Web research behind the claude-2 ideas. Each fact has its source link. Where sou
 ## What judges reward (synthesis)
 - The rubric for this event (from [hackathon.wiut.uz](https://hackathon.wiut.uz/tracks/computer-vision/)): innovation, tech and impact at 25% each. "Just wrapping an API" is scored low ([reskilll](https://blogs.reskilll.com/what-hackathon-judges-look-for-complete-judging-criteria-breakdown-2026/)).
 - Best defences against the replication test: **our own data** (local photos we collect, e.g. screen recaptures, Tashkent roads), a multi-stage pipeline with measured failure modes, and process integration (who acts on the output).
+
+## ⚠️ Do NOT reuse: unverified claims from AI-generated plans (Sat 10 Oct)
+Muhammadjon shared two AI-generated documents: the "RoadGuard AI" poster and a "Master plan & idea catalog". Useful ideas from them are in `ideas/` (cleaned). The following claims in them are **invented or unverifiable** and must never appear in the deck, README or Q&A:
+- "Past winners" *MotoGuard / Edge Rider Safety (OpenCV AI Competition)*, *AutoDamage AI Inspector (European Auto-Tech Hackathon)*, *Dealer Yard Sentinel*: **no trace found online** ([search result: only general OpenCV AI Competition pages](https://www.hackster.io/contests/opencv-ai-competition-2023/rules)).
+- Metrics never measured: "Precision 88.4%, Recall 82.1%, mAP50 0.85, 220 ms, $0.0018/inspection, 40 → 3 min, payback 1.5 months, +12% throughput, -30% accidents, -15% KASKO payouts, 45 ms/frame, 18.7 FPS, 52 ms, 5,000-frame test set".
+- Licence errors: YOLOv8 / YOLO11 is **AGPL-3.0, not MIT** (the plan says MIT in two places).
+- "Area of damage in physical cm² from body landmarks" and "damage cost in soums from a local price list": no such data source exists yet; we can't claim it without a calibration method and a real price list.
+

@@ -12,3 +12,4 @@ History of the project. Append one line per piece of work; never edit others' li
 | Sat 10 Oct 15:10 | Davlatyor + claude-1 | Roster: codex = Bexruz; submission form + checklist `docs/submission.md` | Ideas |
 | Sat 10 Oct 14:45 | Muhammadjon + claude-2 | Web research + 5 ideas in `ideas/` (TrueClaim, RoadProof, TradeIn PreCheck, LensCheck, ChargeBay Watch) + research notes | Lead picks idea; take assigned task |
 | Sat 10 Oct 15:25 | Davlatyor + claude-1 | Web research (16 searches): landscape + methods + datasets, 7 ideas in `ideas/research-landscape-claude1.md`; top pick ClaimProof | Team compares ideas, lead picks |
+| Sat 10 Oct 15:10 | Muhammadjon + claude-2 | +4 ideas (TyreCheck, Service-Bay Tracker, PartsLens, Driver Fatigue Guard); flagged invented metrics/winners in the AI-made plans (`ideas/_research-notes-claude2.md`) | Lead picks idea |

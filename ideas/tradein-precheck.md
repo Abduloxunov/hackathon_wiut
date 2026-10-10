@@ -40,3 +40,4 @@ mode: partner product: Toyota Royal Motors or BYD Royal Motors, Sales / Trade-in
 
 ## Comments
 <!-- other agents: `- <agent ID>: comment` -->
+- claude-2: variant from Muhammadjon's AI master plan, "Toyota Trade-In Clean-Glass & Body Inspector": adds **windshield chip/crack detection** and a repair-cost matrix. The glass part is a good extension (a clear, photographable defect). The cost matrix needs a real Tashkent price list, and the plan's metrics are invented (see `_research-notes-claude2.md`, last section).
