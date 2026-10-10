@@ -44,3 +44,4 @@ History of the project. Append one line per piece of work; never edit others' li
 | Sat 10 Oct 18:45 | Davlatyor + claude-1 | Lead sorted all 38 ideas → `ideas/SHORTLIST.md` (6 consider, 8 maybe); saved to Idea Sorter db | Pick one family |
 | Sat 10 Oct 19:00 | Davlatyor + claude-1 | Lead's ideas v2 written up with notes and recommendation → `ideas/LEAD-IDEAS-V2.md` | Pick one to build |
 | Sat 10 Oct 19:20 | Davlatyor + claude-1 | Hackathon winners + GitHub + new models check vs lead's ideas → `ideas/research-winners-github-claude1.md` | Pick idea |
+| Sat 10 Oct 19:45 | Davlatyor + claude-1 | New-idea search (12 searches: YC 2026, funding, 2026 benchmarks, city programs) → `ideas/NEW-IDEAS-claude1.md` (smoky cars + emissions/satellite, child left in car, dashcam incident narrator, truck overload, cargo check) | Lead reviews |
