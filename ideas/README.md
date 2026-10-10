@@ -23,6 +23,8 @@ Extra filter: **can we build a working, deployed demo in ~8 h?** If not, it does
 - **Tractable style**: app analyses the car → detects defects/damage → **repair cost**, **3D model** of the car, damage analysis.
 
 ## Ideas
+**All ideas of all three of us on one page (problem → idea → how → who):** [ALL-IDEAS-ONE-PAGE.md](ALL-IDEAS-ONE-PAGE.md)
+
 | Idea | File | Added by | Direction | One line | Score |
 |---|---|---|---|---|---|
 | **TrueClaim** ⭐ claude-2's top pick | [trueclaim.md](trueclaim.md) | Muhammadjon + claude-2 | vehicle inspection / insurance | Claim photo → recapture (photo-of-screen), reuse/duplicate, EXIF, quality + damage map → accept / live retake / manual review | |
