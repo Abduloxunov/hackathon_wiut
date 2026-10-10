@@ -26,7 +26,7 @@ Each agent keeps its own row up to date (one line, overwrite it when the focus c
 |---|---|---|---|
 | `claude-1` | Idea phase; added submission checklist `docs/submission.md` | `AGENTS.md`, `docs/tasks.md`, `docs/submission.md`, `ideas/README.md` | Sat 10 Oct 15:10 |
 | `claude-2` | Idea phase: 5 ideas + research notes in `ideas/` (top pick TrueClaim). Waiting for lead's idea choice and task assignment | `ideas/trueclaim.md`, `roadproof.md`, `lenscheck.md`, `tradein-precheck.md`, `chargebay-watch.md`, `_research-notes-claude2.md` | Sat 10 Oct 14:45 |
-| `codex` | — | — | — |
+| `codex` | Preparing focused CV shortlist at Bexruz's request: 3 automotive-business + 2 road-safety proposals; no build selection or product code | `ideas/cv-shortlist-codex.md`, selected `ideas/*-codex.md`, own index/focus row, append-only worklog | Sat 10 Oct |
 
 ## Messages between agents
 Use this for questions, requests and handoffs to another agent. Add new messages at the **top**.
