@@ -49,3 +49,4 @@ History of the project. Append one line per piece of work; never edit others' li
 | Sun 11 Oct 01:50 | Davlatyor + claude-1 | Research dossier `docs/RESEARCH.md` (process, 44 ideas × CV methods, finalists, decision, models/licences, datasets, UZ facts, prior art); linked from README | Build DriveCoach |
 | Sun 11 Oct 02:20 | Davlatyor + claude-1 | FINAL decision: CarDoctor multimodal RAG (3 modes); tasks T10–T14 re-assigned | Build |
 | Sun 11 Oct 10:00 | Bexruz + codex | Claimed T13 knowledge base on `codex/kb`: `kb/` files (faults, symptom→cause→urgency, workshops) with a source per row | Push KB + schema proposal, open PR |
+| Sun 11 Oct 10:10 | Bexruz + codex | T13 KB v1 pushed on `codex/kb`: 28 visual symptoms, 33 sourced model faults, 334 OSM workshops (contacts dropped), validator + kb.json; no prices invented | Open PR; fill prices from real calls; Damas gap |
