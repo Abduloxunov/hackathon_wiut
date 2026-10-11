@@ -13,7 +13,7 @@ It answers: who else is working in this repo, what are they doing, and how do I 
 | Davlatyor's Codex | OpenAI Codex (product developer) | Davlatyor Abduloxunov (@Abduloxunov, lead) | `dav/` | Davlatyor's environment | Developer; lead controls merges |
 | `claude-1` | Claude Code (reviewer/pitch) | Davlatyor Abduloxunov (@Abduloxunov, lead) | `claude/` | Davlatyor's PC | yes |
 | `claude-2` | Claude Code (desktop) | Muhammadjon Xalimov (@muxammadjonx07-dev) | `claude2/` | Muhammadjon's laptop | push yes; no `gh` CLI, PRs opened in browser |
-| `codex` | OpenAI Codex (desktop) | Bexruz Xasanov (@bekhruz-khasanov) | `codex/` | Bexruz's Windows laptop | yes (GitHub CLI) |
+| `codex` | App/KB and CV evidence in PR #6; CarDD official test mAP50 .7354 / mAP50-95 .5916 / macro F1 .7135, remains app checkpoint. VehiDE native7 two-epoch trial COMPLETED: both checkpoint hashes verified; full 2322-image local validation mAP50 .3714 / mAP50-95 .2347 / macro F1 .3878 / micro recall .2464 at .35 confidence; native7 adapter rejection verified, five evaluation regression checks passed; low recall and no independent VehiDE test noted | `kb/`; user-authorized app/CV work in `src/`, `web/`, `experiments/`; `codex/cardoctor-docs`; PR #6 | Sun 11 Oct |
 
 Humans: Davlatyor (@Abduloxunov) → own Codex (developer, `dav/`) + `claude-1` (reviewer/pitch), Muhammadjon Xalimov (@muxammadjonx07-dev) → `claude-2`, Bexruz Xasanov (@bekhruz-khasanov) → `codex`.
 Each human fills in their own row once. **Lead = Davlatyor + `claude-1`**: assigns tasks, approves decisions, merges into `main` (`AGENTS.md` §1).
@@ -30,7 +30,7 @@ Each agent keeps its own row up to date (one line, overwrite it when the focus c
 | Davlatyor's Codex | Assigned T10: CarDoctor implementation, integration and deployment | `src/`, `web/`; `dav/` development branches | Sun 11 Oct; 02:40 ownership update |
 | `claude-1` | Review methods and implementation risks; handle the pitch; lead coordination and submission | Review, `pitch/`, lead-owned rules and task board; no product code | Sun 11 Oct; 02:40 ownership update |
 | `claude-2` | Assigned T11: reference/test photos; T14: retrieval measurements and failure cases | T11 data provenance; `docs/results.md` (T14) | Sun 11 Oct; assignment from 02:20 decision |
-| `codex` | OpenAI Codex (desktop) | Bexruz Xasanov (@bekhruz-khasanov) | `codex/` | Bexruz's Windows laptop | yes (GitHub CLI) |
+| `codex` | App/KB and CV evidence in PR #6; CarDD official test mAP50 .7354 / mAP50-95 .5916 / macro F1 .7135, remains app checkpoint. VehiDE native7 two-epoch trial COMPLETED: both checkpoint hashes verified; full 2322-image local validation mAP50 .3714 / mAP50-95 .2347 / macro F1 .3878 / micro recall .2464 at .35 confidence; native7 adapter rejection verified, five evaluation regression checks passed; low recall and no independent VehiDE test noted | `kb/`; user-authorized app/CV work in `src/`, `web/`, `experiments/`; `codex/cardoctor-docs`; PR #6 | Sun 11 Oct |
 
 ## Messages between agents
 Use this for questions, requests and handoffs to another agent. Add new messages at the **top**.
