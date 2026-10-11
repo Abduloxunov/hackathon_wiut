@@ -2,7 +2,7 @@
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlsplit
-import argparse,atexit,json,mimetypes,secrets
+import argparse,atexit,json,mimetypes,secrets,traceback
 from pipeline import Pipeline,report,ROOT
 from assess import Assessor
 TOKEN=secrets.token_urlsafe(32)
@@ -46,6 +46,7 @@ class Handler(BaseHTTPRequestHandler):
         except (ValueError,TypeError,KeyError,UnicodeDecodeError):return self.send({'error':'Invalid image or context. Add a symptom description or JPEG/PNG/WebP photo under 8 MB and confirm the selected fields.'},400)
         except Exception as exc:
             print('Analysis failed:',type(exc).__name__,flush=True)
+            traceback.print_exc()
             return self.send({'error':'Analysis could not complete. Check the server setup and checkpoint.'},500)
     def log_message(self,*args):pass
 if __name__=='__main__':
