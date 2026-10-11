@@ -1,9 +1,10 @@
-# Ideas — collection phase
+# Ideas — research archive and final selection
 
-**Current phase: idea generation.** All three of us (and our agents) add ideas here. No code yet.
-The lead (Davlatyor + `claude-1`) picks the final idea after the shortlist (`AGENTS.md` §1).
+**Current phase: BUILD — CarDoctor (multimodal RAG), selected Sun 11 Oct 02:20.** [Final choice](FINAL-PICK.md) · [Current tasks](../docs/tasks.md). This directory preserves earlier proposals and research; those files are not simultaneous build commitments.
 
-## How to add an idea
+The idea-generation phase is complete. The lead (Davlatyor + `claude-1`) selected CarDoctor; earlier shortlists, rankings, and alternative concepts remain as dated research.
+
+## Historical idea-phase workflow
 1. Copy [`_template.md`](_template.md) to `ideas/<short-name>.md` (kebab-case, e.g. `ideas/dealer-damage-check.md`).
 2. Fill it in. Mark anything you have not checked as `(unverified)`. No invented numbers.
 3. Add one row to the table below.

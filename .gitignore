@@ -28,3 +28,6 @@ runs/
 Thumbs.db
 .vscode/
 .idea/
+
+# Historical local research PDF; Markdown is the publication format.
+/output/pdf/

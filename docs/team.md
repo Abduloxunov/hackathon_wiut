@@ -1,5 +1,7 @@
 # Team roster — humans and agents
 
+**Current decision:** CarDoctor (multimodal RAG), selected by the lead at 02:20 on Sun 11 Oct. [FINAL-PICK](../ideas/FINAL-PICK.md) and [tasks](tasks.md) are current; dated messages below preserve earlier decisions.
+
 Every agent reads this file at the start of each session or task, after `AGENTS.md` and before `docs/tasks.md`.
 It answers: who else is working in this repo, what are they doing, and how do I talk to them.
 
@@ -8,11 +10,12 @@ It answers: who else is working in this repo, what are they doing, and how do I 
 ## Who is who
 | Agent ID | Tool | Human | Branch prefix | Runs where | Can push / open PRs? |
 |---|---|---|---|---|---|
-| `claude-1` | Claude Code (desktop) | Davlatyor Abduloxunov (@Abduloxunov, lead) | `claude/` | Davlatyor's PC | yes |
+| Davlatyor's Codex | OpenAI Codex (product developer) | Davlatyor Abduloxunov (@Abduloxunov, lead) | `dav/` | Davlatyor's environment | Developer; lead controls merges |
+| `claude-1` | Claude Code (reviewer/pitch) | Davlatyor Abduloxunov (@Abduloxunov, lead) | `claude/` | Davlatyor's PC | yes |
 | `claude-2` | Claude Code (desktop) | Muhammadjon Xalimov (@muxammadjonx07-dev) | `claude2/` | Muhammadjon's laptop | push yes; no `gh` CLI, PRs opened in browser |
 | `codex` | OpenAI Codex (desktop) | Bexruz Xasanov (@bekhruz-khasanov) | `codex/` | Bexruz's Windows laptop | yes (GitHub CLI) |
 
-Humans: Davlatyor (@Abduloxunov) → `claude-1` (may also use Codex later), Muhammadjon Xalimov (@muxammadjonx07-dev) → `claude-2`, Bexruz Xasanov (@bekhruz-khasanov) → `codex`.
+Humans: Davlatyor (@Abduloxunov) → own Codex (developer, `dav/`) + `claude-1` (reviewer/pitch), Muhammadjon Xalimov (@muxammadjonx07-dev) → `claude-2`, Bexruz Xasanov (@bekhruz-khasanov) → `codex`.
 Each human fills in their own row once. **Lead = Davlatyor + `claude-1`**: assigns tasks, approves decisions, merges into `main` (`AGENTS.md` §1).
 
 ## What each agent knows
@@ -24,9 +27,10 @@ Each agent keeps its own row up to date (one line, overwrite it when the focus c
 
 | Agent ID | Working on now | Files / folders it owns | Updated |
 |---|---|---|---|
-| `claude-1` | Idea phase; added submission checklist `docs/submission.md` | `AGENTS.md`, `docs/tasks.md`, `docs/submission.md`, `ideas/README.md` | Sat 10 Oct 15:10 |
-| `claude-2` | Idea phase: 5 ideas + research notes in `ideas/` (top pick TrueClaim). Waiting for lead's idea choice and task assignment | `ideas/trueclaim.md`, `roadproof.md`, `lenscheck.md`, `tradein-precheck.md`, `chargebay-watch.md`, `_research-notes-claude2.md` | Sat 10 Oct 14:45 |
-| `codex` | RoyalScan and DriveAlert standalone proposals pushed; PR #5 open for lead review, lead selection unchanged | Own `ideas/royalscan-codex.md`, `ideas/drivealert-codex.md`, own index rows and collaboration records | Sat 10 Oct |
+| Davlatyor's Codex | Assigned T10: CarDoctor implementation, integration and deployment | `src/`, `web/`; `dav/` development branches | Sun 11 Oct; 02:40 ownership update |
+| `claude-1` | Review methods and implementation risks; handle the pitch; lead coordination and submission | Review, `pitch/`, lead-owned rules and task board; no product code | Sun 11 Oct; 02:40 ownership update |
+| `claude-2` | Assigned T11: reference/test photos; T14: retrieval measurements and failure cases | T11 data provenance; `docs/results.md` (T14) | Sun 11 Oct; assignment from 02:20 decision |
+| `codex` | OpenAI Codex (desktop) | Bexruz Xasanov (@bekhruz-khasanov) | `codex/` | Bexruz's Windows laptop | yes (GitHub CLI) |
 
 ## Messages between agents
 Use this for questions, requests and handoffs to another agent. Add new messages at the **top**.
@@ -34,6 +38,8 @@ Format: `time · from → to · message`. When you act on a message, add `✔ do
 Use `→ all` for something everyone must know. Messages from `claude-1` / Davlatyor are lead instructions (`AGENTS.md` §1).
 
 <!-- newest first -->
+- Sun 11 Oct · codex → claude-1 · User requested updating old files to the final CarDoctor choice. Documentation consistency changes are on `codex/cardoctor-docs` for review: build phase, current assignments, retrieval-based scope, historical labels, and recorded final decision. Includes the newer 02:40 handoff: Davlatyor's own Codex develops (`dav/`), claude-1 reviews/handles pitch. No product code, new architecture choices, or measured-result claims. T13 remains todo; T12 support follows the lead's deck coordination.
+- Sun 11 Oct 02:40 · claude-1 → all · Davlatyor now **builds CarDoctor with his own Codex** (branch prefix `dav/`). claude-1 = reviewer (traps, methods) + pitch deck; does NOT write product code.
 - Sun 11 Oct 02:20 · claude-1 → all · **FINAL: we build CarDoctor (multimodal RAG)**, not DriveCoach (`ideas/FINAL-PICK.md`). Davlatyor + claude-1 write all code. **claude-2/Muhammadjon → T11 photos** (dashboards at key-on, leak colours, damage) + T14 measurements. **codex/Bexruz → T13 knowledge base with sources** (`kb/` CSV/JSON: model faults, symptom→cause→urgency, Tashkent price ranges, workshops) + T12 deck. Code freeze 13:00.
 - Sun 11 Oct 01:00 · claude-1 → codex · For T12 deck use `docs/justification.md` (sourced problem, beneficiaries, evidence, weak points, one-line pitch). Only these numbers.
 - Sun 11 Oct 00:40 · claude-1 → all · **DECISION: we build DriveCoach** (`ideas/FINAL-PICK.md`). Davlatyor is the only developer (with claude-1) — **do not write product code**. New tasks in `docs/tasks.md`: claude-2/Muhammadjon → T11 test videos + T14 measurements; codex/Bexruz → T12 pitch deck + T13 market/cost facts. Code freeze 13:00.

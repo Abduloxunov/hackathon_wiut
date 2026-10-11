@@ -1,5 +1,9 @@
 # Is the car-damage idea (CarDoctor: photo → damage → cost → right workshop) valid? — claude-1, Sun 11 Oct 01:20
 
+**Current choice (Sun 11 Oct 02:20): CarDoctor — multimodal RAG.** The lead replaced the earlier direct-classifier plan with visual-reference retrieval plus sourced repair-knowledge retrieval. See [final scope](../ideas/FINAL-PICK.md) and [research §5](RESEARCH.md#5-final-decision). This is the rationale file for T12.
+
+The evidence and comparison below were written at 01:20, before that redesign. The old recommendation to keep CarDoctor as a future module is superseded. Evidence gaps, hidden-damage limits, local price/workshop sourcing, and the need for measured retrieval results still apply. Source claims below have not been reverified by this documentation update.
+
 Same check as `docs/justification.md` (DriveCoach). Survey numbers are perceptions, not measured overcharging.
 
 ## Problem
@@ -24,7 +28,7 @@ Used-car buyers (avoid hidden damage, negotiate), drivers after an accident (kno
 
 → Position as **"first look + fair range + right workshop"**, never "exact price". The workshop confirms in person.
 
-## Verdict
+## Historical verdict (01:20; superseded by the 02:20 retrieval-based decision)
 **Valid problem, real beneficiaries — but weaker than DriveCoach** on (a) proof the AI part works well enough, and (b) what we can build alone by 13:00. Best as DriveCoach's "next module" for fleets.
 
 | | DriveCoach | CarDoctor |

@@ -1,0 +1,12 @@
+"""Add three source-linked research summaries, idempotently, to local storage."""
+import core
+NOTES=[
+ {'title':'Research starter: tire sidewall bulge versus indentation','part':'tire','vehicle':'','tags':'tire tyre sidewall bulge bubble protrusion indentation','source_url':'https://www.michelinman.com/auto/auto-tips-and-advice/tire-damage/sidewall-problems','excerpt':'Source summary checked 2026-10-11: Michelin distinguishes an inward sidewall indentation, which can be a normal cord-overlap feature, from an outward bulge associated with internal structural damage. Its guidance calls for immediate replacement of a confirmed bulging tire. A photo similarity score cannot establish which condition is present. This note concerns tires, not dents in a body panel.','reviewed':True},
+ {'title':'Research starter: tire sidewall cracking needs context','part':'tire','vehicle':'','tags':'tire tyre sidewall crack cracking shallow deep rubber age','source_url':'https://www.michelinman.com/auto/auto-tips-and-advice/tire-damage/sidewall-problems','excerpt':'Source summary checked 2026-10-11: Michelin separates fine surface aging cracks from deeper or extensive cracking. Depth and distribution matter to its guidance. The app has no measurement of crack depth, tire age or internal condition; this source note should support professional inspection rather than an automated photo-only repair decision.','reviewed':True},
+ {'title':'Research starter: windshield chip and crack assessment','part':'windshield','vehicle':'','tags':'windshield windscreen glass crack chip repair replacement','source_url':'https://www3.safelite.com/damaged-windshield-repair-replace','excerpt':'Source summary checked 2026-10-11: Safelite says a technician considers damage geometry, dimensions, depth, glass type and position when choosing repair or replacement. Some small damage may be repairable; deep damage, obstructed driver visibility and cracks spanning the edges can require replacement. Its commercial service guidance is not a local legal standard or a guarantee for a specific vehicle. This app cannot determine those conditions from similarity alone.','reviewed':True}
+]
+if __name__=='__main__':
+    for note in NOTES:
+        with core.connection() as db:existing=db.execute('SELECT id FROM notes WHERE title=? AND source_url=?',(note['title'],note['source_url'])).fetchone()
+        if not existing:core.add_note(note)
+    print('Starter summaries available:',len(NOTES));print('Storage:',core.RUNTIME)

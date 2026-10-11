@@ -1,0 +1,55 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.svg"><title>CarDoctor · Whole-car check</title><link rel="stylesheet" href="/style.css"></head><body>
+<header><a class="brand" href="/">Car<span>Doctor</span></a><span>MDB VISION · WIUT 2026</span></header>
+<main>
+<div class="modes" role="tablist">
+  <button type="button" class="mode active" data-mode="sell" role="tab" aria-selected="true"><b>🚗 Sell / Buy a car</b><small>Seller uploads photos → buyer sees every damage</small></button>
+  <button type="button" class="mode" data-mode="fleet" role="tab" aria-selected="false"><b>🚚 Fleet &amp; trucks</b><small>Driver sends photos or a problem → right technician</small></button>
+</div>
+<div class="intro"><p class="eyebrow" id="eyebrow">USED-CAR MARKETPLACE</p><h1 id="headline">Every scratch, found before the buyer arrives.</h1><p id="lede">Upload photos of the car from all sides. CarDoctor finds visible damage on each photo and builds one condition report a buyer can trust, with sources.</p></div>
+<div class="workspace">
+<section class="input card"><form id="form">
+  <h2>1. Photos of the car</h2>
+  <label class="upload" for="photo"><b>＋ Add photos</b><small>Front, rear, left, right… up to 10. Large phone photos are shrunk automatically.</small><input id="photo" type="file" accept="image/jpeg,image/png,image/webp" multiple></label>
+  <div id="thumbs" class="thumbs"></div>
+  <h2>2. About the car</h2>
+  <label>Car model<input id="vehicle" maxlength="100" placeholder="e.g. Chevrolet Cobalt, BYD Song Plus"></label>
+  <label><span id="queryLabel">Anything the buyer should know? (optional)</span><textarea id="query" maxlength="2000" rows="3" placeholder="e.g. small scratch on rear bumper, new tyres"></textarea><small>English, Uzbek or Russian keywords work.</small></label>
+  <div id="fleetCtx" class="pair" hidden>
+    <label>Engine running now?<select id="engine_running"><option value="">Not sure</option><option value="yes">Yes</option><option value="no">No</option></select></label>
+    <label>Parking brake released?<select id="parking_brake_released"><option value="">Not sure</option><option value="yes">Yes</option><option value="no">No</option></select></label>
+  </div>
+  <details><summary>More options</summary>
+    <label>Affected component (if you know it)<select id="part"><option value="">Let CarDoctor decide</option><option value="body">Body panel</option><option value="windshield">Windshield</option><option value="side_window">Side window</option><option value="lamp">Lamp</option><option value="tire">Tyre</option><option value="dashboard">Dashboard warning light</option><option value="engine">Engine</option><option value="fluid">Fluid / leak</option><option value="wiper">Wiper</option><option value="fuel">Fuel system</option><option value="ev">EV / hybrid system</option></select></label>
+    <label>Propulsion<select id="propulsion"><option value="">Unknown</option><option value="ice">Petrol / diesel</option><option value="ev">Electric</option><option value="hev">Hybrid</option><option value="phev">Plug-in hybrid</option></select></label>
+    <label>Detection sensitivity<select id="threshold"><option value="0.25">High (finds more, more false alarms)</option><option value="0.35" selected>Balanced</option><option value="0.5">Strict (only clear damage)</option></select></label>
+    <label class="check"><input id="llm" type="checkbox">Add an AI explanation of the sources (needs internet; only text is sent, never photos)</label>
+  </details>
+  <button id="submit" type="submit">Check the car <span>→</span></button>
+  <p id="status" role="status">Checking the model…</p>
+</form></section>
+<section class="output card" aria-live="polite">
+  <div id="empty"><div class="empty-icon">🔍</div><h3>Your report appears here</h3><p>Add photos from different sides, or describe the problem, then press <b>Check the car</b>.</p></div>
+  <div id="results" hidden>
+    <div id="verdict" class="verdict"></div>
+    <div class="overview">
+      <div class="carmap"><svg viewBox="0 0 200 320" role="img" aria-label="Car sides with damage">
+        <rect class="zone" data-view="front" x="50" y="10" width="100" height="58" rx="24"/>
+        <rect class="zone" data-view="left" x="18" y="74" width="34" height="172" rx="10"/>
+        <rect class="zone" data-view="right" x="148" y="74" width="34" height="172" rx="10"/>
+        <rect class="zone" data-view="rear" x="50" y="252" width="100" height="58" rx="20"/>
+        <rect class="cabin" x="58" y="74" width="84" height="172" rx="16"/>
+        <text x="100" y="44">FRONT</text><text x="100" y="286">REAR</text><text x="100" y="164">CABIN</text>
+        <text x="35" y="164">L</text><text x="165" y="164">R</text>
+      </svg><p class="legend"><i class="dot bad"></i>damage <i class="dot ok"></i>checked <i class="dot none"></i>no photo</p></div>
+      <div><h3>What we found</h3><ul id="summary" class="summary"></ul><p id="timing" class="small"></p></div>
+    </div>
+    <div id="warnings" class="notice"></div>
+    <h3 id="workshopTitle">Where to get it fixed</h3><div id="workshops" class="shops"></div>
+    <h3>Photos</h3><div id="gallery" class="gallery"></div>
+    <div id="answer"></div>
+    <details class="guidance" open><summary>Guidance with sources</summary><div id="evidence"></div></details>
+    <div class="actions"><button id="download" class="secondary" type="button">⬇ Download report</button><button id="print" class="secondary" type="button">🖨 Print / save PDF</button></div>
+  </div>
+</section></div>
+<footer>CarDoctor shows visible damage candidates and sourced guidance. A photo cannot prove hidden faults, repair prices or roadworthiness. A qualified mechanic makes the final call.</footer>
+</main><script src="/app.js" defer></script></body></html>

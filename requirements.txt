@@ -1,0 +1,2 @@
+# Prepared local app dependency snapshot; see README for platform limits.
+-r requirements-app-local.txt
