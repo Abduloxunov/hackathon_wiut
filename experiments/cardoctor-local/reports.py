@@ -14,4 +14,3 @@ def markdown_report(r):
         out += [f"- {clean(p['label'])}: {p['uncalibrated_score']} (uncalibrated model score)" for p in head['predictions']]
     out += ['','## Reproducibility','',f"Feature pipeline: {r['feature_version']}",f"Analysis time: {r['elapsed_ms']} ms (this request only)",f"Exact-image exclusions: {r['excluded_exact_images']}",f"Same-group exclusions: {r['excluded_same_group']}",'','No vehicle-damage accuracy or repair-cost metric has been measured.']
     return '\n'.join(out)+'\n'
-

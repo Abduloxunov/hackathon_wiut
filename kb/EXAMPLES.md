@@ -213,4 +213,3 @@ Offline lexical candidate retrieval; scores are not probabilities.
 This is an evidence bundle, not a generated diagnosis or a roadworthiness decision.
 
 Repair cost: unavailable; no verified quote in this knowledge base.
-

@@ -27,5 +27,3 @@ $('refForm').addEventListener('submit',async e=>{e.preventDefault();pending(true
 $('noteForm').addEventListener('submit',async e=>{e.preventDefault();const submit=e.target.querySelector('[type=submit]');submit.disabled=true;try{await api('/api/notes',{title:$('noteTitle').value,excerpt:$('noteExcerpt').value,source_url:$('noteUrl').value,vehicle:$('noteVehicle').value,part:$('notePart').value,tags:$('noteTags').value,reviewed:$('noteReviewed').checked});e.target.reset();await refresh();notice('Reviewed source note saved on D:.');}catch(error){notice(error.message,true);}finally{submit.disabled=false;}});
 $('export').addEventListener('click',async()=>{pending(true);try{const result=await api('/api/export',payload());notice('Markdown report saved on D: '+result.path);}catch(error){notice(error.message,true);}finally{pending(false);}});
 refresh().catch(error=>notice('Local server: '+error.message,true));
-
-

@@ -33,5 +33,3 @@ const assert=(condition,message)=>{if(!condition)throw Error(message)};
   const result={status:'passed',checks,seconds:(Date.now()-started)/1000,fixture_notice:'All QA photos and source notes are synthetic engineering fixtures, not damage data.',runtime};fs.writeFileSync(path.join(runtime,'UI-RESULTS.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));
  }finally{if(context)await context.close();server.kill();fs.writeFileSync(path.join(runtime,'server-test.log'),logs)}
 })().catch(error=>{console.error(error.stack);process.exitCode=1});
-
-

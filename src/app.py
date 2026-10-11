@@ -49,4 +49,3 @@ if __name__=='__main__':
     atexit.register(PIPELINE.close)
     print(f'CarDoctor: http://127.0.0.1:{PORT}',flush=True)
     ThreadingHTTPServer(('127.0.0.1',PORT),Handler).serve_forever()
-

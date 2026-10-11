@@ -193,4 +193,3 @@ def analyze(data):
     return result
 
 initialize()
-
