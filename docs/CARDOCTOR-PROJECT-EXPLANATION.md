@@ -2,6 +2,17 @@
 
 CarDoctor is a car-assessment assistant that combines computer vision, a sourced automotive knowledge base and a language model. A user uploads car photos, describes symptoms and provides relevant vehicle details. The product is designed to identify supported visible damage and explain what the available evidence suggests, what remains uncertain and which follow-up information or inspection is needed.
 
+## Vision and the two applications (lead, Sun 11 Oct)
+
+From the start, the plan was a trained vision model working with an LLM. The model detects **physical damage**. The owner's description covers **problems a photo cannot show**, such as overheating or warning lights. Retrieval and the LLM turn both into sourced guidance.
+
+We do not judge a car from one photo. The user uploads **many photos of the same car**, each tagged with a side (front, rear, left, right, interior). CarDoctor detects damage on each photo and merges all findings into **one report** with a car map of the damaged sides.
+
+1. **Sell / Buy (marketplace).** When a seller lists a car, CarDoctor checks the photos and lists every detected damage. The buyer sees this condition report before visiting.
+2. **Fleet & trucks (logistics).** When a vehicle has a problem, the driver sends photos and/or describes it in their own words. CarDoctor detects the damage, matches the symptom to sourced records, asks the missing safety questions (engine running? parking brake released?), gives an urgency verdict and lists which technician to contact.
+
+Implemented in `src/assess.py` (`POST /api/assess`) and `web/`. Next steps: a 3D car model with damage marked per body part (needs a part-segmentation model), and verified workshop partners with prices.
+
 ## The problem we are solving
 
 Seeing damage and understanding it are different tasks. A person may notice a scratch, crack, broken lamp or flat tyre but still need answers to practical questions: What is visible? Which component is involved? What information helps assess the situation? What guidance applies to this vehicle? What should be inspected next?

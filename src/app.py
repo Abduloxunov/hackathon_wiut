@@ -4,8 +4,10 @@ from pathlib import Path
 from urllib.parse import urlsplit
 import argparse,atexit,json,mimetypes,secrets
 from pipeline import Pipeline,report,ROOT
+from assess import Assessor
 TOKEN=secrets.token_urlsafe(32)
 PIPELINE=None
+ASSESSOR=None
 PORT=8766
 class Handler(BaseHTTPRequestHandler):
     def send(self,body,status=200,kind='application/json; charset=utf-8'):
@@ -27,11 +29,16 @@ class Handler(BaseHTTPRequestHandler):
         if not self.valid_host():return self.send({'error':'Invalid host.'},400)
         if self.headers.get('X-CarDoctor-Token')!=TOKEN:return self.send({'error':'Reload the app before submitting.'},403)
         if self.headers.get('Content-Type','').split(';')[0]!='application/json':return self.send({'error':'Send JSON.'},415)
-        if urlsplit(self.path).path!='/api/analyze':return self.send({'error':'Not found.'},404)
+        path=urlsplit(self.path).path
+        if path not in {'/api/analyze','/api/assess'}:return self.send({'error':'Not found.'},404)
         try:
             size=int(self.headers.get('Content-Length','0'))
-            if not 0<size<=12*1024*1024:return self.send({'error':'Use a smaller image.'},413)
+            if not 0<size<=(12 if path=='/api/analyze' else 40)*1024*1024:return self.send({'error':'Photos are too large. Use fewer or smaller photos.'},413)
             data=json.loads(self.rfile.read(size))
+            if path=='/api/assess':
+                # Whole-car check: several photos, combined report. Validation messages are safe to show.
+                try:return self.send(ASSESSOR.assess(data))
+                except ValueError as exc:return self.send({'error':str(exc)},400)
             result=PIPELINE.analyze(data)
             result['report']=report(result)
             return self.send(result)
@@ -45,7 +52,7 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--port',type=int,default=8766)
     parser.add_argument('--checkpoint',type=Path)
-    args=parser.parse_args();PORT=args.port;PIPELINE=Pipeline(args.checkpoint)
+    args=parser.parse_args();PORT=args.port;PIPELINE=Pipeline(args.checkpoint);ASSESSOR=Assessor(PIPELINE)
     atexit.register(PIPELINE.close)
     print(f'CarDoctor: http://127.0.0.1:{PORT}',flush=True)
     ThreadingHTTPServer(('127.0.0.1',PORT),Handler).serve_forever()

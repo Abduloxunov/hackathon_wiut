@@ -1,6 +1,40 @@
 # CarDoctor — MDB Vision
 
-CarDoctor combines a trained car-damage detector with sourced automotive retrieval and optional AI explanations. Upload a photo, confirm its component and describe symptoms. The app displays candidate regions, applicable evidence, source links, questions and a downloadable Markdown assessment.
+**See the damage. Know what to do. Find who can fix it.**
+
+CarDoctor turns photos of a car, and the owner's own words, into one report. The report lists every visible damage, says how urgent the problem is with a source for each piece of guidance, and names who to contact.
+
+## The idea
+
+Our starting idea was a trained vision model working together with an LLM. The model sees **physical damage** (dents, scratches, cracks, broken glass and lamps, flat tyres). The owner's words cover **problems a photo cannot show**, such as overheating, an oil-pressure light or a brake warning. Both lead to sourced guidance and a next step.
+
+One photo is not enough to judge a car. **CarDoctor checks many photos of the same car** (front, rear, left, right…), finds the damage on each one and merges everything into a single report with a car map of the damaged sides.
+
+## Two applications
+
+| | 🚗 Sell / Buy a car | 🚚 Fleet & trucks |
+|---|---|---|
+| Who uploads | The seller, when listing the car on a marketplace | The driver, when something goes wrong on the road |
+| Input | Photos from every side, plus optional notes | Photos and/or the problem in their own words ("overheating, steam"), plus engine and parking-brake answers |
+| What CarDoctor does | Finds every visible damage on every photo and marks the damaged sides on the car map | Detects damage, matches the described symptom to sourced records and asks the missing safety questions |
+| Output | A **condition report the buyer sees** before visiting | An **urgency verdict** (stop / inspect soon / routine) and **which technician to call** |
+| Who pays (plan) | Marketplace per report or per listing | Fleet per vehicle per month; workshops per referred job |
+
+## How it works
+
+```
+photos (many, each tagged with a side) ─► RF-DETR damage detector (fine-tuned) ─┐
+owner's words + car model + yes/no context ──────────────────────────────────────┼─► retrieval from 28 sourced records
+                                                                                  │   (BM25 + E5/Qdrant, scope checks)
+                                                                                  ▼
+                       verdict (worst sourced urgency) · car map · damage list · workshop contacts
+                       · optional LLM explanation that may only cite retrieved records · downloadable report
+```
+
+- **Vision:** RF-DETR Nano fine-tuned by us on CarDD (6 classes). Runs on every photo, on CPU.
+- **Knowledge:** 28 Markdown records with 20 sources (NHTSA, manufacturer manuals for Cobalt, Lacetti, Nexia and Damas, 3M, I-CAR and others). Records tied to a specific car model are shown with a "check that your model year is covered by this manual" note.
+- **LLM (optional):** Gemini 2.5 Flash Lite through OpenRouter explains only the retrieved records, citing a source for each claim. Photos are never sent to it.
+- **Workshops:** published contacts from `kb/workshops.md`, matched by car brand and repair type. They are contacts, not verified referrals or quotes.
 
 ## Run the app now
 
@@ -11,7 +45,10 @@ Set-Location D:\hakathon_wiut\finals\mdb-vision-finals
 .\start-app.ps1
 ```
 
-Open **http://127.0.0.1:8766/**. The older visual-reference experiment uses port 8765; the new integrated app uses 8766.
+Open **http://127.0.0.1:8766/**. Choose **Sell / Buy** or **Fleet & trucks**, add photos (several sides) and/or describe the problem, then press the button.
+
+**Public https demo** (laptop stays on): in a second window run
+`cloudflared tunnel --url http://127.0.0.1:8766 --http-host-header localhost:8766` and share the printed `https://….trycloudflare.com` link. The server stays bound to 127.0.0.1; the tunnel forwards to it. The older visual-reference experiment uses port 8765; the new integrated app uses 8766.
 
 The existing Python environment is `D:\hakathon_wiut\.venv`. The trained checkpoint and E5/Qdrant index are already present locally. No download is required to run this setup. First analysis loads the two models; later analyses are faster.
 
@@ -37,7 +74,7 @@ The existing ignored `.env` supplies `OPENROUTER_API_KEY`; `.env.example` is the
 | Retrieval | Pinned multilingual E5-small + local Qdrant; BM25/vector rank fusion; explicit keyword fallback |
 | Evidence | 28 Markdown records, 20 sources; source locators and conditions preserved |
 | Explanation | Gemini 2.5 Flash Lite through OpenRouter; bounded JSON, record/source binding checks |
-| UI / server | Responsive HTML/CSS/JavaScript; Python loopback HTTP service |
+| UI / server | Responsive HTML/CSS/JavaScript (two modes, multi-photo, car map, verdict, workshop cards, print/PDF); Python loopback HTTP service with `/api/assess` (whole car) and `/api/analyze` (single photo) |
 | Report | Markdown downloaded by the browser |
 
 A damage label does not identify its component, hidden cause, severity or repair price. The user confirms the component. The background class is excluded. Scores are uncalibrated. Generated explanations remain unreviewed; valid citation IDs alone do not prove factual support.
@@ -48,7 +85,7 @@ The current app uses the best EMA checkpoint selected at epoch 10 from a complet
 
 Both checkpoints were then tested locally on the same **374 official test images / 785 targets**, excluded from cloud training. Test mAP@50 improved **0.6630 to 0.7354**, mAP@50-95 **0.5342 to 0.5916**, and macro F1 **0.6306 to 0.7135** at confidence 0.35 / IoU 0.50. Cracks remain weak and small-object AP declined. These are damage-box metrics, not mechanical diagnosis accuracy. [Complete comparison and per-class results](docs/CARDOCTOR-MODEL-COMPARISON.md).
 
-The current app passes twelve pipeline tests and nine real browser workflow checks with the improved checkpoint. Earlier pilot measurements on a repeated single validation image with warm CPU models and no LLM took 0.351–0.410 seconds within the server, median 0.364 seconds. A cold browser analysis including one LLM response took 22.257 seconds. This is a small local engineering check, not a throughput or production benchmark.
+The current app passes twelve pipeline tests and nine real browser workflow checks with the improved checkpoint. Earlier pilot measurements on a repeated single validation image with warm CPU models and no LLM took 0.351–0.410 seconds within the server, median 0.364 seconds. A cold browser analysis including one LLM response took 22.257 seconds. This is a small local engineering check, not a throughput or production benchmark. The whole-car flow (`src/assess.py`) adds five tests (17 in `src/` in total). Its UI was checked in a headless browser on desktop and phone sizes with a stand-in detector; run it once with the real checkpoint before the demo.
 
 See [training results](docs/CARDOCTOR-HF-RESULTS.md), [app setup and API](docs/CARDOCTOR-APP-SETUP.md), and [submission readiness](docs/CARDOCTOR-SUBMISSION-READINESS.md).
 
