@@ -1,0 +1,12 @@
+# Measured local Windows Python 3.12.10 environment. Not a portable production lock.
+torch==2.14.0+cpu
+torchvision==0.29.0+cpu
+rfdetr==1.11.2
+Pillow==12.3.0
+numpy==2.5.2
+supervision==0.29.0
+qdrant-client==1.19.1
+sentence-transformers==6.1.0
+transformers==5.19.0
+huggingface-hub==1.33.0
+tokenizers==0.23.3

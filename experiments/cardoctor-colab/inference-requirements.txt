@@ -1,0 +1,3 @@
+rfdetr==1.11.2
+supervision==0.29.0
+pyDeprecate==0.9.0

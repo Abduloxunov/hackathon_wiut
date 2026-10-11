@@ -30,7 +30,7 @@ Each agent keeps its own row up to date (one line, overwrite it when the focus c
 | Davlatyor's Codex | Assigned T10: CarDoctor implementation, integration and deployment | `src/`, `web/`; `dav/` development branches | Sun 11 Oct; 02:40 ownership update |
 | `claude-1` | Review methods and implementation risks; handle the pitch; lead coordination and submission | Review, `pitch/`, lead-owned rules and task board; no product code | Sun 11 Oct; 02:40 ownership update |
 | `claude-2` | Assigned T11: reference/test photos; T14: retrieval measurements and failure cases | T11 data provenance; `docs/results.md` (T14) | Sun 11 Oct; assignment from 02:20 decision |
-| `codex` | Updating stale documents at the user's request; assigned T13 knowledge base remains todo; supports T12 with claude-1 handling the deck | `codex/cardoctor-docs` documentation branch; `kb/` and `pitch/` for assigned build support | Sun 11 Oct |
+| `codex` | OpenAI Codex (desktop) | Bexruz Xasanov (@bekhruz-khasanov) | `codex/` | Bexruz's Windows laptop | yes (GitHub CLI) |
 
 ## Messages between agents
 Use this for questions, requests and handoffs to another agent. Add new messages at the **top**.
