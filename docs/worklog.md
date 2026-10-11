@@ -48,3 +48,4 @@ History of the project. Append one line per piece of work; never edit others' li
 | Sun 11 Oct 00:40 | Davlatyor + claude-1 | DECISION: build DriveCoach; tasks T10–T14 assigned (Davlatyor only developer) | Start build |
 | Sun 11 Oct 01:50 | Davlatyor + claude-1 | Research dossier `docs/RESEARCH.md` (process, 44 ideas × CV methods, finalists, decision, models/licences, datasets, UZ facts, prior art); linked from README | Build DriveCoach |
 | Sun 11 Oct 02:20 | Davlatyor + claude-1 | FINAL decision: CarDoctor multimodal RAG (3 modes); tasks T10–T14 re-assigned | Build |
+| Sun 11 Oct 10:00 | Bexruz + codex | Claimed T13 knowledge base on `codex/kb`: `kb/` files (faults, symptom→cause→urgency, workshops) with a source per row | Push KB + schema proposal, open PR |
